@@ -2,21 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-const AppInner = ( { pageNumber }) => {
+import { Hero } from "./Hero";
+import { Intro } from "./Intro";
+import { MainContentRouter } from "./MainContentRouter";
+
+const App = ({ pageNumber }) => {
   return (
-    <div className="App">
-      <p>{pageNumber}</p>
-    </div>
+    <>
+      <Hero />
+      <Intro />
+      <MainContentRouter />
+    </>
   );
 }
-AppInner.propTypes = {
-  pageNumber: PropTypes.number.isRequired
-}
-
-const mapStateToProps = state => ({
-  pageNumber: state.currentPage,
-});
-
-const App = connect(mapStateToProps)(AppInner);
 
 export default App;
+
+
