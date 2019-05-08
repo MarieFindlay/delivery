@@ -6,6 +6,7 @@ import { createStore } from "redux";
 import rootReducer from './reducers/reducers';
 import { Provider } from "react-redux";
 import { devToolsEnhancer } from "redux-devtools-extension";
+import { GlobalStyle } from './globals';
 
 import App from "./components/App";
 
@@ -13,6 +14,7 @@ const store = createStore(rootReducer, devToolsEnhancer());
 
 ReactDOM.render(
   <Provider store={store}>
+    <GlobalStyle/>
     <App />
   </Provider>,
   document.getElementById("root")
