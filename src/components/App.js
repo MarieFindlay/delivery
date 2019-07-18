@@ -1,17 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
 
-import { Hero } from "./intro/Hero";
-import { Intro } from "./intro/Intro";
-import { MainContentRouter } from "./mainContent/MainContentRouter";
+import IntroSection from "./IntroSection/index";
+import OrderFormSection from "./OrderFormSection/index";
 
 const App = ({ pageNumber }) => {
   return (
     <>
-      <Hero />
-      <Intro />
-      <MainContentRouter />
+      <IntroSection />
+      <OrderFormSection />
     </>
   );
 }
