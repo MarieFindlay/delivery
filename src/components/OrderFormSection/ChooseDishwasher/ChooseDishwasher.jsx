@@ -1,10 +1,8 @@
 import React from "react";
-import { connect } from "react-redux";
 import GLOBALS from './../../../globals';
 import { SPageTitle, SPageContainer } from './../../commons/StyledComponents'
 import CardButton from './../../commons/CardButton';
 import BackNextButton from './../../commons/BackNextButton';
-import { nextPage, addItemsToBasket } from './../../../actions/actions';
 
 export default class extends React.Component {
     constructor(props) {
