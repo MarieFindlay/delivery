@@ -1,5 +1,8 @@
 import GLOBALS from './globals';
 
+// 1 = once a month; 2 = every 2 months etc.
+export const regularities = [1, 2, 3];
+
 export const availableItems = [
     {
         id: 0,

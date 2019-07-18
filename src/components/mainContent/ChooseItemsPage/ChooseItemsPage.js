@@ -1,16 +1,15 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import styled from 'styled-components';
 
-import GLOBALS from './../globals';
+import GLOBALS from './../../../globals';
+import { availableItems } from './../../../data';
 
-import { SContainer, SPageTitle } from './commons/StyledComponents';
-import NextButton from './commons/NextButton';
-import { availableItems } from './../data';
+import { SContainer, SPageTitle } from './../../commons/StyledComponents'
 import { Item } from './Item';
+import NextButton from './../../commons/NextButton';
 
-import { nextPage, addItemsToBasket } from "./../actions/actions";
+import { nextPage, addItemsToBasket } from './../../../actions/actions';
 
 
 export class ChooseItemsPageInner extends React.Component {
@@ -41,20 +40,11 @@ export class ChooseItemsPageInner extends React.Component {
                         item={item}
                         key={item.id}/>
                 })}</SItemsContainer>
-                <NextButton onClick={this.handleClickNext}/>
+                {this.state.selectedItemIds.length >= 1 && <NextButton onClick={this.handleClickNext}/>}
             </SContainer>
         )
     }
 }
-
-const SItemsContainer = styled.div`
-    margin-top: ${GLOBALS.DIMENSIONS.MARGIN / 2}px;
-    margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 10}px;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-`
   
 const mapDispatchToProps = dispatch => {
     return {
@@ -64,3 +54,13 @@ const mapDispatchToProps = dispatch => {
 };
 
 export const ChooseItemsPage =  connect(undefined, mapDispatchToProps)(ChooseItemsPageInner);
+
+const SItemsContainer = styled.div`
+    margin-top: ${GLOBALS.DIMENSIONS.MARGIN / 2}px;
+    margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 10}px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+`
+

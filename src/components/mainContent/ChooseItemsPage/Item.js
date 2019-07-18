@@ -1,8 +1,8 @@
 import React from "react";
-import GLOBALS from './../globals';
 import styled from 'styled-components';
-import { SText } from './commons/StyledComponents';
-import { availableItems } from './../data';
+
+import GLOBALS from './../../../globals';
+import { SText } from './../../commons/StyledComponents';
 
 export const Item = ({ item, handleClick, isSelected }) => {
     return (

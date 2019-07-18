@@ -6,7 +6,12 @@ const initialState = {
   currentPage: 0,
   basket: {
     itemQuantitiesById: {},
-  }
+    regularity: 1, // comes every 1 month. Options: 1, 2, 3.
+    firstDeliveryDate: null,
+    repeatDeliverySchedule: null,
+    address: null,
+    postcode: null,
+  },
 }
 
 const basket = (state = initialState.basket, action) => {
@@ -17,22 +22,27 @@ const basket = (state = initialState.basket, action) => {
         newObj[itemId] = 1
       })
       return {
+        ...state,
         itemQuantitiesById: newObj,
       }
-    case actionTypes.INCREASE_QUANTITY:
-      return {
-        itemQuantitiesById: {
-          ...state.itemQuantitiesById,
-        [action.itemId]: state.itemQuantitiesById[action.itemId] + 1
-        },
-      }
-    case actionTypes.DECREASE_QUANTITY:
-      return {
-        itemQuantitiesById: {
-          ...state.itemQuantitiesById,
-        [action.itemId]: state.itemQuantitiesById[action.itemId] - 1
-        },
-      }
+      case actionTypes.UPDATE_QUANTITIES_AND_SCHEDULE:
+        return {
+          ...state,
+          itemQuantitiesById: action.itemQuantitiesById,
+          regularity: action.regularity
+        }
+      case actionTypes.UPDATE_SCHEDULE:
+        return {
+          ...state,
+          firstDeliveryDate: action.firstDeliveryDate,
+          repeatDeliverySchedule: action.repeatDeliverySchedule
+        }
+      case actionTypes.UPDATE_ADDRESS:
+        return {
+          ...state,
+          address: action.address,
+          postcode: action.postcode,
+        }
     default:
       return state;
   }

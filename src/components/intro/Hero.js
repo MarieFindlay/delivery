@@ -1,36 +1,33 @@
 import React from "react";
-import GLOBALS from './../globals';
+import GLOBALS from './../../globals'
 import styled from 'styled-components'
-import { SMainTitle, SSubTitle, SContainer } from './commons/StyledComponents';
-import { Button } from './commons/Button';
+import { SMainTitle, SSubTitle, SContainer } from './../commons/StyledComponents'
+import { Button } from './../commons/Button';
 
 export const Hero = () => {
     return (
         <SHeroContainer color={GLOBALS.COLORS.PURPLE}>
-            <SMainTitle>niggle.</SMainTitle>
+            <SMainTitle>juggle.</SMainTitle>
             <SSubTitle>All your essentials – to your door, on your schedule.</SSubTitle>
             <SSubTitle>We’ll take care of the boring stuff, so you can dream of bigger things.</SSubTitle>
             <SHeroImage src={GLOBALS.IMAGES.WOMAN_HERO}/>
             <SButtonContainer>
-                <Button handleClick={() => console.log('click')} size={'large'} color={GLOBALS.COLORS.BEIGE} text={'build my box'}/>
+                <Button handleClick={() => console.log('click')} size={'large'} color={GLOBALS.COLORS.BEIGE} text={'Build my box'}/>
             </SButtonContainer>
         </SHeroContainer>
     )
 }
 
 const SHeroContainer = styled(SContainer)`
-    height: 500px;
-    padding-top: ${GLOBALS.DIMENSIONS.MARGIN}px;
-    padding-bottom: ${GLOBALS.DIMENSIONS.MARGIN * 3}px;
+    height: 80vh;
     position: relative;
 `;
 
 const SHeroImage = styled.img`
-    width: 225px;
-    height: auto;
+    height: 20vh;
     object-fit: cover;
     align-self: flex-end;
-    margin-top: ${GLOBALS.DIMENSIONS.MARGIN}px;
+    margin-top: ${GLOBALS.DIMENSIONS.RESP_MARGIN};
     border-radius: 100px;
 `
 

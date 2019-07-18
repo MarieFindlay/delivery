@@ -1,12 +1,14 @@
 import React from "react";
-import { connect } from 'react-redux';
-import GLOBALS from './../globals';
 import styled from 'styled-components';
-import { SText } from './commons/StyledComponents';
-import { SButton } from './commons/Button';
-import { increaseQuantity, decreaseQuantity } from '../actions/actions';
+import { connect } from 'react-redux';
 
-const ItemWithAmountInner = ({ item, quantity, increaseQuantity }) => {
+import GLOBALS from './../../../globals';
+
+import { SText } from './../../commons/StyledComponents';
+import { SButton } from './../../commons/Button';
+import { increaseQuantity, decreaseQuantity } from './../../../actions/actions';
+
+const ItemAmountPickerInner = ({ item, quantity, increaseQuantity, handleClickPlus, handleClickMinus }) => {
     return (
         <SItemContainer>
             <SItemImage src={item.image} />
@@ -15,8 +17,8 @@ const ItemWithAmountInner = ({ item, quantity, increaseQuantity }) => {
                 <SItemLabel>{item.name}</SItemLabel>
             </SMiddlePanel>
             <SQuantityButtons>
-                <SPlusMinusButton onClick={id => increaseQuantity(item.id)}>+</SPlusMinusButton>
-                <SPlusMinusButton onClick={id => decreaseQuantity(item.id)}>–</SPlusMinusButton>
+                <SPlusMinusButton onClick={id => handleClickPlus(item.id)}>+</SPlusMinusButton>
+                <SPlusMinusButton onClick={id => handleClickMinus(item.id)}>–</SPlusMinusButton>
             </SQuantityButtons>
         </SItemContainer>
     )
@@ -39,8 +41,8 @@ const SItemContainer = styled.div`
     width: 100%;
     align-content: center;
     justify-content: space-between;
-    margin-top: ${GLOBALS.DIMENSIONS.MARGIN / 2}px;
-    margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 2}px;
+    margin-top: ${GLOBALS.DIMENSIONS.MARGIN / 5}px;
+    margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 5}px;
 `
 
 const SMiddlePanel = styled.div`
@@ -86,4 +88,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export const ItemWithAmount = connect(undefined, mapDispatchToProps)(ItemWithAmountInner);
+export const ItemAmountPicker = connect(undefined, mapDispatchToProps)(ItemAmountPickerInner);
