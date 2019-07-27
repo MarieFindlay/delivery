@@ -1,5 +1,3 @@
-import { get } from "https";
-
 export const getBasketItemIdArrFromObj = itemQuantitiesById => {
     const basketItemsArr = Object.keys(itemQuantitiesById);
     const basketItemsArrNum = basketItemsArr.map(string => parseInt(string));
