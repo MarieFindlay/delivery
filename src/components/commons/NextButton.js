@@ -14,6 +14,8 @@ export default NextButton;
 export const SNextButton = styled(SButton)`
     width: 70%;
     margin-top: ${GLOBALS.DIMENSIONS.RESP_MARGIN};
+    padding-top: 2vh;
+    padding-bottom: 2vh;
     background-color: ${GLOBALS.COLORS.MUTED_BEIGE};
     box-shadow: ${GLOBALS.EFFECTS.SHADOW};
 `
