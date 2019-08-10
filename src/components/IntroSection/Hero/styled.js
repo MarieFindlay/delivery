@@ -1,6 +1,7 @@
-import styled from 'styled-components'
-import { SContainer } from './../../commons/StyledComponents'
-import GLOBALS from './../../../globals'
+import styled from 'styled-components';
+import { SContainer } from './../../commons/StyledComponents';
+import GLOBALS from './../../../globals';
+import { deviceWidth } from './../../commons/devices';
 
 export const SHeroContainer = styled(SContainer)`
     height: 80vh;
@@ -13,6 +14,9 @@ export const SHeroImage = styled.img`
     align-self: flex-end;
     margin-top: ${GLOBALS.DIMENSIONS.RESP_MARGIN};
     border-radius: 100px;
+    @media ${deviceWidth.mobileS} {
+        margin-top: 0;
+    }
 `
 
 export const SButtonContainer = styled.div`

@@ -20,11 +20,12 @@ export default {
     DIMENSIONS: {
         MARGIN: 50,
         RESP_MARGIN: '5vh',
+        HORIZONTAL_MARGIN: '10vw',
         BORDER_RADIUS: '1px',
         FONT_SIZE_BIGGEST: '45px',
         FONT_SIZE_BIG: '25px',
         FONT_SIZE_MEDIUM: '18px',
-        FONT_SIZE_SMALL_MEDIUM: '20px',
+        FONT_SIZE_SMALL_MEDIUM: '16px',
         FONT_SIZE_SMALL: '14px',
         FONT_SIZE_SMALLEST: '14xpx',
         FONT_SIZE_TINY: '12px'
