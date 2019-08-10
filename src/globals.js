@@ -1,11 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-    @import url(‘https://fonts.googleapis.com/css?family=Actor');
     body {
+        @import url('https://fonts.googleapis.com/css?family=Actor&display=swap');
         padding: 0;
         margin: 0;
-        font-family: Actor, sans-serif;
+        font-family: 'Actor', sans-serif;
         box-sizing: border-box;
     }
 `

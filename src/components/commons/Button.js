@@ -20,8 +20,8 @@ export const SButton = styled.div`
     align-self: center;
     color: ${GLOBALS.COLORS.CRIMSON};
     width: ${props => props.size && props.size === 'large' ? '60vw' : '100%'};
-    padding-top: ${props => props.size && props.size === 'large' ? '5vh' : '0'};
-    padding-bottom: ${props => props.size && props.size === 'large' ? '5vh' : '0'};
+    padding-top: ${props => props.size && props.size === 'large' ? '4vh' : '0'};
+    padding-bottom: ${props => props.size && props.size === 'large' ? '4vh' : '0'};
     box-shadow: ${GLOBALS.EFFECTS.SHADOW};
     font-weight: 300;
 `

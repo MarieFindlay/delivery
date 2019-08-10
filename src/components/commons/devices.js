@@ -14,13 +14,13 @@ const height = {
 }
 
   export const deviceWidth = {
-    mobileS: `(max-width: ${width.mobileM})`,
-    mobileM: `(max-width: ${width.mobileL})`,
-    mobileL: `(max-width: ${width.tablet})`,
-    tablet: `(max-width: ${width.laptop})`,
-    laptop: `(max-width: ${width.laptopL})`,
-    laptopL: `(max-width: ${width.desktop})`,
-    desktop: `(min-width: ${width.desktop + 1})`,
+    mobileS: `(min-width: ${width.mobileS})`,
+    mobileM: `(min-width: ${width.mobileM})`,
+    mobileL: `(min-width: ${width.mobileL})`,
+    tablet: `(min-width: ${width.tablet})`,
+    laptop: `(min-width: ${width.laptop})`,
+    laptopL: `(min-width: ${width.laptopL})`,
+    desktop: `(min-width: ${width.desktop})`,
   };
 
   export const deviceHeight = {

@@ -29,7 +29,7 @@ export const SText = styled.p`
 
 export const SMainTitle = styled(SText)`
     font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_BIGGEST};
-    margin-bottom: ${GLOBALS.DIMENSIONS.RESP_MARGIN};
+    margin-bottom: 6vh;
     margin-top: 0;
     text-align: left;
 `
@@ -41,8 +41,14 @@ export const SSubTitle = styled(SText)`
     letter-spacing: 0.02em;
     text-align: left;
     @media ${deviceWidth.mobileS} {
-        font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_SMALL_MEDIUM};
+        font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_MEDIUM};
         margin-top: 0;
+    }
+    @media ${deviceWidth.laptop} {
+        font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_MEDIUM};
+        letter-spacing: 0.06em;
+        line-height: 27px;
+        font-size: 20px;
     }
 `
 
