@@ -12,6 +12,10 @@ export default class extends React.Component {
         this.state = {};
     }
 
+    handleClickOrder = () => {
+        this.props.goToNextPage();
+    }
+
     render(){
         return (
             <SBoxPageContainer color={GLOBALS.COLORS.BEIGE}>
@@ -20,10 +24,10 @@ export default class extends React.Component {
                     <SOrderHeadline>Monthly for 2</SOrderHeadline>
                     <SOrderPrice>£14pp</SOrderPrice>
                 </SOrderSummary>
-                <SOrderButton>Order now</SOrderButton>
+                <SOrderButton onClick={this.handleClickOrder}>Order now</SOrderButton>
                 <OrderDetails items={dummyItems}/>
                 <SSubText>Our algorithm calculates the perfect box based on average household usage per person. It's easy to adjust your amounts once you start!</SSubText>
-                <BackButton onClickBack={() => console.log('click back')} onClickNext={() => console.log('click next')}/>
+                <BackButton onClick={this.props.goToPrevPage}/>
             </SBoxPageContainer>
         )
     }

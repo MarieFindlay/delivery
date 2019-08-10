@@ -1,17 +1,12 @@
 import { connect } from 'react-redux';
-import { nextPage, updateSchedule } from './../../../actions/actions';
+import { nextPage, prevPage, updateSchedule } from './../../../actions/actions';
 import ChooseDates from './ChooseDates';
-
-const mapStateToProps = state => {
-    return {
-    }
-}
 
 const mapDispatchToProps = dispatch => {
     return {
         goToNextPage: () => dispatch(nextPage()),
-        updateSchedule: (firstDeliveryDate, repeatDeliverySchedule) => dispatch(updateSchedule(firstDeliveryDate, repeatDeliverySchedule)),
+        goToPrevPage: () => dispatch(prevPage()),
      }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChooseDates);
+export default connect(undefined, mapDispatchToProps)(ChooseDates);

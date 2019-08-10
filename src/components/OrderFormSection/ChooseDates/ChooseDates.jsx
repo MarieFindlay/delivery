@@ -54,12 +54,13 @@ export default class extends React.Component {
     }
 
     handleClickNext = () => {
-        const selectedRepeatOption = this.formatSelectedOption(this.state.selectedRepeatOption);
-        this.props.updateSchedule(this.state.selectedDay, selectedRepeatOption);
+        // const selectedRepeatOption = this.formatSelectedOption(this.state.selectedRepeatOption);
+        // this.props.updateSchedule(this.state.selectedDay, selectedRepeatOption);
         this.props.goToNextPage();
     }
 
     render(){
+        console.log(this.props.goToNextPage);
         return (
             <SDatesPageContainer color={GLOBALS.COLORS.BEIGE}>
                 <SPageTitle>When shall we deliver your first box?</SPageTitle>
@@ -81,7 +82,7 @@ export default class extends React.Component {
                     }
                     <SText>You can change your delivery dates at any time.</SText>
                 </SRepeatScheduleContainer>}
-                {<BackNextButton/>}
+                <BackNextButton onClickNext={this.props.goToNextPage} onClickBack={this.props.goToPrevPage}/>
             </SDatesPageContainer>
         )
     }

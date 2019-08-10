@@ -11,13 +11,17 @@ export default class extends React.Component {
         this.state = { selectedItemIds: [] };
     }
 
+    handleClickNext = () => {
+        this.props.goToNextPage();
+    }
+
     render(){
         return (
             <SPageContainer color={GLOBALS.COLORS.BEIGE}>
                 <SPageTitle>Do you need toiletries?</SPageTitle>
                 <CardButton title="Yes" subtitle="add toiletries for minimal fuss"/>
                 <CardButton title="No" subtitle="stick to household essentials"/>
-                <BackNextButton onClickBack={() => console.log('click back')} onClickNext={() => console.log('click next')}/>
+                <BackNextButton onClickBack={this.props.goToPrevPage} onClickNext={this.handleClickNext}/>
             </SPageContainer>
         )
     }

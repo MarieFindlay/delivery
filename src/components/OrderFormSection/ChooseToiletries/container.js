@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
-import { nextPage, addItemsToBasket } from './../../../actions/actions';
+import { nextPage, prevPage, addItemsToBasket } from './../../../actions/actions';
 import ChooseToiletries from './ChooseToiletries';
 
 const mapDispatchToProps = dispatch => {
     return {
         goToNextPage: () => dispatch(nextPage()),
-        addItemsToBasket: (itemIds) => dispatch(addItemsToBasket(itemIds))
+        goToPrevPage: () => dispatch(prevPage()),
     };
 };
 

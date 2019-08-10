@@ -24,5 +24,6 @@ export const SButton = styled.div`
     padding-bottom: ${props => props.size && props.size === 'large' ? '4vh' : '2vh'};
     box-shadow: ${GLOBALS.EFFECTS.SHADOW};
     font-weight: 300;
+    cursor: pointer;
 `
 

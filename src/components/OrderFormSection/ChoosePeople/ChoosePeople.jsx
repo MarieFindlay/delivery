@@ -11,6 +11,10 @@ export default class extends React.Component {
         this.state = { selectedItemIds: [] };
     }
 
+    handleClickNext = () => {
+        this.props.goToNextPage();
+    }
+
     render(){
         return (
             <SPageContainer color={GLOBALS.COLORS.BEIGE}>

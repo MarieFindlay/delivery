@@ -2,6 +2,7 @@ import React from "react";
 import { SButton } from "./Button";
 import styled from 'styled-components';
 import GLOBALS from './../../globals';
+import { connect } from 'react-redux';
 
 const NextButton = ({ onClick }) => {
     return (
