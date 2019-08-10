@@ -1,7 +1,13 @@
 import styled from 'styled-components'
-import { SText, SPageTitle } from './../../commons/StyledComponents';
+import { SText, SPageTitle, SContainer } from './../../commons/StyledComponents';
 import { deviceWidth } from './../../commons/devices';
 import GLOBALS from './../../../globals';
+
+export const SHowItWorksContainer = styled(SContainer)`
+    @media ${deviceWidth.tablet}{
+        padding: 6vw;
+    }
+`
 
 export const SParagraph = styled(SText)`
     margin-top: 0.5vh;

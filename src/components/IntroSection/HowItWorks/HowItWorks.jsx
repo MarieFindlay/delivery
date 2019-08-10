@@ -1,11 +1,11 @@
 import React from "react";
 import { SContainer } from './../../commons/StyledComponents';
-import { SParagraph, SHowItWorksTitle, SHowItWorksStepsContainer, SStepContainer, SStepIcon } from './styled';
+import { SHowItWorksContainer, SParagraph, SHowItWorksTitle, SHowItWorksStepsContainer, SStepContainer, SStepIcon } from './styled';
 import GLOBALS from './../../../globals';
 
 const HowItWorks = () => {
     return (
-        <SContainer>
+        <SHowItWorksContainer>
             <SHowItWorksTitle>How it works.</SHowItWorksTitle>
             <SHowItWorksStepsContainer>
                 <SStepContainer>
@@ -21,7 +21,7 @@ const HowItWorks = () => {
                     <SParagraph>3. Live your life – free from niggly admin!</SParagraph>
                 </SStepContainer>
             </SHowItWorksStepsContainer>
-        </SContainer>
+        </SHowItWorksContainer>
     )
 }
 

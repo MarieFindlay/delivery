@@ -11,17 +11,14 @@ export const SContainer = styled.div`
     flex-direction: column;
     padding: ${GLOBALS.DIMENSIONS.HORIZONTAL_MARGIN};
     background-color: ${props => props.color && props.color};
-    @media ${deviceWidth.tablet} {
-        padding: 3vw;
-        padding-top: 6vw;
-    }
 `
 
 export const SPageContainer = styled(SContainer)`
     min-height: 100vh;
-    @media ${deviceWidth.mobileS} {
-        padding: 3vw;
-        padding-top: 6vw;
+    padding-top: 20vh;
+    @media ${deviceWidth.tablet} {
+        padding-left: 25%;
+        padding-right: 25%;
     }
 `
 
