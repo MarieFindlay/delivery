@@ -11,11 +11,18 @@ export const SContainer = styled.div`
     flex-direction: column;
     padding: ${GLOBALS.DIMENSIONS.HORIZONTAL_MARGIN};
     background-color: ${props => props.color && props.color};
+    @media ${deviceWidth.tablet} {
+        padding: 3vw;
+        padding-top: 6vw;
+    }
 `
 
 export const SPageContainer = styled(SContainer)`
     min-height: 100vh;
-    padding-top: 15vh;
+    @media ${deviceWidth.mobileS} {
+        padding: 3vw;
+        padding-top: 6vw;
+    }
 `
 
 // text components
@@ -44,7 +51,7 @@ export const SSubTitle = styled(SText)`
         font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_MEDIUM};
         margin-top: 0;
     }
-    @media ${deviceWidth.laptop} {
+    @media ${deviceWidth.tablet} {
         font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_MEDIUM};
         letter-spacing: 0.06em;
         line-height: 27px;
@@ -56,6 +63,10 @@ export const SPageTitle = styled(SText)`
     font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_BIG};
     text-align: center;
     line-height: 0;
+    @media ${deviceWidth.tablet} {
+        line-height: initial;
+        font-size: 30px;
+    }
 `
 
 export const SClickableText = styled.button`

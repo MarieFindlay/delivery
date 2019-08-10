@@ -15,6 +15,9 @@ export default {
         WOMAN_HERO: require('./assets/woman-hero-image.jpg'),
         DOVE: require('./assets/dove.png'),
         GROUP: require('./assets/group.png'),
+        BOX_ICON: require('./assets/box_icon.jpg'),
+        DANCING_ICON: require('./assets/dancing_icon.jpg'),
+        LIST_ICON: require('./assets/list_icon.jpg'),
 
     },
     DIMENSIONS: {
