@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 
 export default {
     IMAGES: {
-        WOMAN_HERO: require('./assets/woman-hero-image.png'),
+        WOMAN_HERO: require('./assets/woman-hero-image.jpg'),
         DOVE: require('./assets/dove.png'),
         GROUP: require('./assets/group.png'),
 
