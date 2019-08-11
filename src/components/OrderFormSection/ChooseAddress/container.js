@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { nextPage, updateAddress } from './../../../actions/actions';
+import { nextPage, prevPage, updateAddress } from './../../../actions/actions';
 import ChooseAddress from './ChooseAddress.jsx';
 
 const mapStateToProps = state => {
@@ -10,7 +10,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         updateAddress: (address, postcode) => dispatch(updateAddress(address, postcode)),
-        goToNextPage: () => dispatch(nextPage())
+        goToNextPage: () => dispatch(nextPage()),
+        goToPrevPage: () => dispatch(prevPage())
      }
 }
 

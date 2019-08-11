@@ -69,7 +69,7 @@ export default class extends React.Component {
                         selectedDays={this.state.selectedDay}
                         onDayClick={this.handleDayClick}/>
                 </SDayPickerContainer>
-                {<SRepeatScheduleContainer>
+                <SRepeatScheduleContainer>
                     <SFollowUpQuestion>And after that?</SFollowUpQuestion>
                     {dummyRepeatOptions.map(option => {
                         return (
@@ -77,12 +77,10 @@ export default class extends React.Component {
                         </SDateButton>
                         )
                     })}
-                    {
-                        <SInput type="text" placeholder={`Tell us what schedule suits you!`} value={this.state.customInput} onChange={this.handleInputChange}/>
-                    }
+                    <SInput type="text" placeholder={`Tell us what schedule suits you!`} value={this.state.customInput} onChange={this.handleInputChange}/>
                     <SText>You can change your delivery dates at any time.</SText>
-                </SRepeatScheduleContainer>}
-                <BackNextButton onClickNext={this.props.goToNextPage} onClickBack={this.props.goToPrevPage}/>
+                </SRepeatScheduleContainer>
+                <BackNextButton onClickNext={this.handleClickNext} onClickBack={this.props.goToPrevPage}/>
             </SDatesPageContainer>
         )
     }

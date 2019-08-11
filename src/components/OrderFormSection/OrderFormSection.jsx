@@ -5,11 +5,12 @@ import ChooseDishwasher from './ChooseDishwasher/index';
 import RecommendedBox from './RecommendedBox/index';
 import ChooseDates from './ChooseDates/index';
 import ChooseAddress from './ChooseAddress/index';
+import PaymentDetails from './PaymentDetails/index';
 
 const OrderFormSection = ({ pageNumber }) => {
   switch(pageNumber) {
     case 0:
-        return <ChoosePeople/>
+        return <PaymentDetails/>
     case 1:
         return <ChooseToiletries/>
     case 2:

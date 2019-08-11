@@ -70,7 +70,7 @@ export default class extends React.Component {
                         )}
                     </SSelect>
                 )}
-                <BackNextButton onClick={this.handleClickNext}/>
+                <BackNextButton onClickNext={this.handleClickNext} onClickBack={this.props.goToPrevPage}/>
             </SPageContainer>
         )
     }

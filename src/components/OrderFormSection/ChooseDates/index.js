@@ -1,2 +1,2 @@
-import ChooseDates from './ChooseDates';
+import ChooseDates from './container';
 export default ChooseDates;
