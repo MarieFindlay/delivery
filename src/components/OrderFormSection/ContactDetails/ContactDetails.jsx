@@ -2,7 +2,7 @@ import React from "react";
 import GLOBALS from './../../../globals';
 import BackNextButton from './../../commons/BackNextButton';
 import { SPageContainer, SPageTitle, SInput } from './../../commons/StyledComponents';
-import { SExtraCardDetails, SSmallInput, SLongCardNumber } from './styled';
+import { SPhoneNumber } from './styled';
 
 export default class extends React.Component {
     constructor(props) {
@@ -17,12 +17,9 @@ export default class extends React.Component {
     render(){
         return (
             <SPageContainer color={GLOBALS.COLORS.BEIGE}>
-                <SPageTitle>How do you want to pay?</SPageTitle>
-                <SLongCardNumber type="number" placeholder={`Type your long card number`}/>
-                <SExtraCardDetails>
-                    <SSmallInput type="date"/>
-                    <SSmallInput type="number" placeholder='csv'/>
-                </SExtraCardDetails>
+                <SPageTitle>Last thing! How can we contact you?</SPageTitle>
+                <SInput type="text" placeholder="Type your email address"/>
+                <SPhoneNumber type="text" placeholder="And your phone number"/>
                 <BackNextButton onClickBack={this.props.goToPrevPage} onClickNext={this.handleClickNext}/>
             </SPageContainer>
         )

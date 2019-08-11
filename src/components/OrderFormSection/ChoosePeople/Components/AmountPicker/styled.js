@@ -24,8 +24,7 @@ export const SLabel = styled(SText)`
     font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_BIG};
     line-height: 0;
     text-align: center;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
+
 `
 
 export const SMiddlePanel = styled.div`

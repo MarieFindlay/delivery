@@ -6,6 +6,8 @@ import RecommendedBox from './RecommendedBox/index';
 import ChooseDates from './ChooseDates/index';
 import ChooseAddress from './ChooseAddress/index';
 import PaymentDetails from './PaymentDetails/index';
+import ContactDetails from './ContactDetails/index';
+import OrderComplete from './OrderComplete/index';
 
 const OrderFormSection = ({ pageNumber }) => {
   switch(pageNumber) {
@@ -23,8 +25,10 @@ const OrderFormSection = ({ pageNumber }) => {
         return <ChooseAddress/>
     case 6:
         return <PaymentDetails/>
+    case 7:
+        return <ContactDetails/>
     default:
-        return <ChoosePeople/>
+        return <OrderComplete/>
   } 
 }
 

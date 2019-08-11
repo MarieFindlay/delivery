@@ -1,6 +1,6 @@
 import React from "react";
 import GLOBALS from './../../../globals';
-import BackButton from './../../commons/BackButton';
+import BackNextButton from './../../commons/BackNextButton';
 import { OrderDetails } from './Components/OrderDetails/OrderDetails';
 import { SPageTitle } from './../../commons/StyledComponents';
 import { SBoxPageContainer, SOrderSummary, SOrderHeadline, SOrderPrice, SOrderButton, SSubText } from './styled';
@@ -27,7 +27,7 @@ export default class extends React.Component {
                 <SOrderButton onClick={this.handleClickOrder}>Order now</SOrderButton>
                 <OrderDetails items={dummyItems}/>
                 <SSubText>Our algorithm calculates the perfect box based on average household usage per person. It's easy to adjust your amounts once you start!</SSubText>
-                <BackButton onClick={this.props.goToPrevPage}/>
+                <BackNextButton onClickBack={this.props.goToPrevPage} onClickNext={this.props.goToNextPage}/>
             </SBoxPageContainer>
         )
     }
