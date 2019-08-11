@@ -9,7 +9,9 @@ export const actionTypes = {
     UPDATE_QUANTITIES: 'UPDATE_QUANTITIES',
     UPDATE_QUANTITIES_AND_SCHEDULE: 'UPDATE_QUANTITIES_AND_SCHEDULE',
     UPDATE_SCHEDULE: 'UPDATE_SCHEDULE',
-    UPDATE_ADDRESS: 'UPDATE_ADDRESS'
+    UPDATE_ADDRESS: 'UPDATE_ADDRESS',
+    UPDATE_NUMBER_OF_PEOPLE: 'INCREASE_NUMBER_OF_PEOPLE',
+    UPDATE_INCLUDE_TOILETRIES: 'UPDATE_INCLUDE_TOILETRIES',
   };
   
 /* Action Creators */
@@ -57,7 +59,19 @@ export const updateAddress = (address, postcode) => {
   }
 }
 
+export const updateNumberOfPeople = (numberOfPeople) => {
+  return {
+    type: actionTypes.UPDATE_NUMBER_OF_PEOPLE,
+    numberOfPeople,
+  }
+}
 
+export const updateIncludeToiletries = (includeToiletries) => {
+  return {
+    type: actionTypes.UPDATE_INCLUDE_TOILETRIES,
+    includeToiletries
+  }
+}
 
 
 //Not needed - to remove

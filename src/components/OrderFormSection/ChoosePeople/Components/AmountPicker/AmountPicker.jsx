@@ -1,16 +1,16 @@
 import React from "react";
 import { SAmountPickerContainer, SPlusMinusButton, SLabel, SMiddlePanel, SAmount } from './styled'
 
-const AmountPicker = ({ item, quantity, increaseQuantity, handleClickPlus, handleClickMinus }) => {
+const AmountPicker = ({ number, handleClickPlus, handleClickMinus }) => {
     return (
         <SAmountPickerContainer>
-            <SPlusMinusButton onClick={id => handleClickPlus(item.id)}>
+            <SPlusMinusButton onClick={handleClickMinus}>
                 <SLabel>-</SLabel>
             </SPlusMinusButton>
             <SMiddlePanel>
-                <SAmount>1</SAmount>
+                <SAmount>{number}</SAmount>
             </SMiddlePanel>
-            <SPlusMinusButton onClick={id => handleClickMinus(item.id)}>
+            <SPlusMinusButton onClick={handleClickPlus}>
                 <SLabel>+</SLabel>
             </SPlusMinusButton>
         </SAmountPickerContainer>

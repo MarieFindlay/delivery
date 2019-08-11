@@ -3,7 +3,9 @@ import { nextPage, prevPage, updateAddress } from './../../../actions/actions';
 import ChooseAddress from './ChooseAddress.jsx';
 
 const mapStateToProps = state => {
+    console.log(state);
     return {
+        numberOfPeople: state.numberOfPeople,
     }
 }
 

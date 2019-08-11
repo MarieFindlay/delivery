@@ -4,6 +4,8 @@ import { actionTypes } from "../actions/actions";
 
 const initialState = {
   currentPage: 0,
+  numberOfPeople: 1,
+  includeToiletries: true,
   basket: {
     itemQuantitiesById: {},
     regularity: 1, // comes every 1 month. Options: 1, 2, 3.
@@ -13,6 +15,37 @@ const initialState = {
     postcode: null,
   },
 }
+
+const currentPage = (state = initialState.currentPage, action) => {
+  switch (action.type) {
+    case actionTypes.GO_TO_NEXT_PAGE:
+      return state + 1;
+    case actionTypes.GO_TO_PREV_PAGE:
+      return state - 1;
+    default:
+      return state;
+  }
+};
+
+const numberOfPeople = (state = initialState.numberOfPeople, action) => {
+  switch(action.type){
+    case actionTypes.UPDATE_NUMBER_OF_PEOPLE:
+      return action.numberOfPeople;
+    default:
+      return state;
+  }
+}
+
+const includeToiletries = (state = initialState.includeToiletries, action) => {
+  switch (action.type) {
+    case actionTypes.UPDATE_INCLUDE_TOILTRIES:
+      return action.includeToiltries;
+    default:
+      return state;
+  }
+}
+
+// TO BE REMOVED: 
 
 const basket = (state = initialState.basket, action) => {
   switch (action.type){
@@ -48,20 +81,11 @@ const basket = (state = initialState.basket, action) => {
   }
 }
 
-const currentPage = (state = initialState.currentPage, action) => {
-  switch (action.type) {
-    case actionTypes.GO_TO_NEXT_PAGE:
-      return state + 1;
-    case actionTypes.GO_TO_PREV_PAGE:
-      return state - 1;
-    default:
-      return state;
-  }
-};
-
 const rootReducer = combineReducers({
   currentPage,
-  basket
+  basket,
+  numberOfPeople,
+  includeToiletries
 });
 
 export default rootReducer;

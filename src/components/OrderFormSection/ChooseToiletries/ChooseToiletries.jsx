@@ -8,7 +8,13 @@ import { SPageTitle, SPageContainer } from './../../commons/StyledComponents';
 export default class extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { selectedItemIds: [] };
+        this.state = { };
+    }
+
+    componentDidMount(){
+        this.setState({
+            includeToiletries: true,
+        })
     }
 
     handleClickNext = () => {
@@ -19,8 +25,8 @@ export default class extends React.Component {
         return (
             <SPageContainer color={GLOBALS.COLORS.BEIGE}>
                 <SPageTitle>Do you need toiletries?</SPageTitle>
-                <CardButton title="Yes" subtitle="add toiletries for minimal fuss"/>
-                <CardButton title="No" subtitle="stick to household essentials"/>
+                <CardButton selected={this.state.includeToiletries} title="Yes" subtitle="add toiletries for minimal fuss"/>
+                <CardButton selected={!this.state.includeToiletries} title="No" subtitle="stick to household essentials"/>
                 <BackNextButton onClickBack={this.props.goToPrevPage} onClickNext={this.handleClickNext}/>
             </SPageContainer>
         )
