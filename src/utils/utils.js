@@ -1,4 +1,5 @@
 export const humanizeNumber = (number) => {
+
     if(number % 100 >= 11 && number % 100 <= 13)
         return number + "th";
     
@@ -8,6 +9,11 @@ export const humanizeNumber = (number) => {
         case 3: return number + "rd";
         default: return number + "th";
     }
+}
+
+export const getNthDayFromDate = date => {
+    const nthDay = humanizeNumber(parseInt(date.toString().slice(8,10),10));
+    return nthDay;
 }
 
 const GET_ADDRESS_API_KEY = 'gaWz7iI9EUmgHpGp-ku5mQ18850';

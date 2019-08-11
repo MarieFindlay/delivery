@@ -7,6 +7,7 @@ const initialState = {
   numberOfPeople: 1,
   includeToiletries: true,
   hasDishwasher: true,
+  firstDeliveryDate: null,
   basket: {
     itemQuantitiesById: {},
     regularity: 1, // comes every 1 month. Options: 1, 2, 3.
@@ -55,6 +56,15 @@ const hasDishwasher = (state = initialState.hasDishwasher, action) => {
   }
 }
 
+const firstDeliveryDate = (state = initialState.firstDeliveryDate, action) => {
+  switch(action.type) {
+    case actionTypes.UPDATE_SCHEDULE:
+      return action.firstDeliveryDate;
+    default:
+      return state;
+  }
+}
+
 // TO BE REMOVED: 
 
 const basket = (state = initialState.basket, action) => {
@@ -96,7 +106,8 @@ const rootReducer = combineReducers({
   basket,
   numberOfPeople,
   includeToiletries,
-  hasDishwasher
+  hasDishwasher,
+  firstDeliveryDate
 });
 
 export default rootReducer;

@@ -3,82 +3,93 @@ import DayPicker from 'react-day-picker';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 import GLOBALS from './../../../globals';
-import { humanizeNumber } from './../../../utils/utils';
+import { getNthDayFromDate } from './../../../utils/utils';
 import { SPageTitle, SText, SInput } from './../../../components/commons/StyledComponents';
 import BackNextButton from './../../commons/BackNextButton';
-import { SDatesPageContainer, SDayPickerContainer, SRepeatScheduleContainer, SFollowUpQuestion, SDateButton } from './styled';
+import { SDatesPageContainer, SDayPickerContainer, SRepeatScheduleContainer, SFollowUpQuestion, SDateButton, dayPickerInputStyles } from './styled';
 
-const dummyRepeatOptions = ['15th of each month', 'Custom'];
+const REPEAT_STYLES = {
+    CUSTOM: 'CUSTOM',
+    SAME_DAY: 'SAME_DAY',
+}
 export default class extends React.Component {
     constructor(props) {
         super(props);
-        this.handleDayClick = this.handleDayClick.bind(this);
         this.state = {
-            selectedDay: null,
-            repeatOptions: [],
-            selectedRepeatOption: null,
-            customInput: '',
+            selectedDay: this.props.firstDeliveryDateOnMount,
+            selectedRepeatStyle: this.props.repeatStyleOnMount,
+            customInput: this.props.customInputOnMount,
         };
     }
 
-    getRepeatOptions = (day) => {
-        const dateValue = humanizeNumber(parseInt(day.toString().slice(8,10),10));
-        const option1 = `${dateValue} of the month`;
-        return [option1, 'Custom']
-    }
-
-    formatSelectedOption = repeatOption => {
-        if (repeatOption === 'Custom') {
-            return `Custom - ${this.state.customInput}`
-        } else return repeatOption;
-    }
-
-    handleSelectRepeatOption = (option) => {
+    handleDayChange = (day) => {
         this.setState({
-            selectedRepeatOption: option,
-        })
-    }
-
-    handleDayClick(day, { selected }) {
-        const repeatOptions = this.getRepeatOptions(day);
-        this.setState({
-          selectedDay: selected ? undefined : day,
-          repeatOptions: repeatOptions
+          selectedDay: day,
         });
     }
 
-    handleInputChange = (event) => {
+    getRepeatDeliveryOptions = () => {
+        const { selectedDay } = this.state;
+        const nthDay = getNthDayFromDate(selectedDay);
+        return [
+            {style: REPEAT_STYLES.SAME_DAY, label: `${nthDay} of each month`},
+            {style: REPEAT_STYLES.CUSTOM, label: 'Custom'}
+        ]
+    }
+
+    handleChooseRepeatStyle = style => {
+        this.setState({
+            selectedRepeatStyle: style,
+        })
+    }
+
+    handleCustomInputChange = (event) => {
         this.setState({
             customInput: event.target.value
         })
     }
 
     handleClickNext = () => {
-        // const selectedRepeatOption = this.formatSelectedOption(this.state.selectedRepeatOption);
-        // this.props.updateSchedule(this.state.selectedDay, selectedRepeatOption);
         this.props.goToNextPage();
     }
 
     render(){
+        const { selectedDay, selectedRepeatStyle } = this.state;
+        const showCustomInputField = selectedRepeatStyle === REPEAT_STYLES.CUSTOM;
         return (
             <SDatesPageContainer color={GLOBALS.COLORS.BEIGE}>
                 <SPageTitle>When shall we deliver your first box?</SPageTitle>
                 <SDayPickerContainer>
-                    <DayPickerInput 
+                    <DayPickerInput
                         selectedDays={this.state.selectedDay}
-                        onDayClick={this.handleDayClick}/>
+                        onDayChange={this.handleDayChange}
+                        inputProps={{ style: dayPickerInputStyles }}
+                    />
                 </SDayPickerContainer>
-                <SRepeatScheduleContainer>
-                    <SFollowUpQuestion>And after that?</SFollowUpQuestion>
-                    {dummyRepeatOptions.map(option => {
-                        return (
-                        <SDateButton>{option}
-                        </SDateButton>
-                        )
-                    })}
-                    <SInput type="text" placeholder={`Tell us what schedule suits you!`} value={this.state.customInput} onChange={this.handleInputChange}/>
-                    <SText>You can change your delivery dates at any time.</SText>
-                </SRepeatScheduleContainer>
+                {selectedDay && 
+                    <SRepeatScheduleContainer>
+                        <SFollowUpQuestion>And after that?</SFollowUpQuestion>
+                        {this.getRepeatDeliveryOptions().map(option => {
+                            return (
+                            <SDateButton
+                                key={option.style}
+                                selected={option.style === selectedRepeatStyle}
+                                onClick={() => this.handleChooseRepeatStyle(option.style)}
+                            >
+                                {option.label}
+                            </SDateButton>
+                            )
+                        })}
+                        {showCustomInputField &&
+                            <SInput 
+                                type="text"
+                                placeholder={`Tell us what schedule suits you!`}
+                                value={this.state.customInput}
+                                onChange={this.handleCustomInputChange}
+                        />}
+                        <SText>You can change your delivery dates at any time.</SText>
+                    </SRepeatScheduleContainer>
+                }
                 <BackNextButton onClickNext={this.handleClickNext} onClickBack={this.props.goToPrevPage}/>
             </SDatesPageContainer>
         )
