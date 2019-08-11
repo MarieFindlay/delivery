@@ -38,8 +38,8 @@ const numberOfPeople = (state = initialState.numberOfPeople, action) => {
 
 const includeToiletries = (state = initialState.includeToiletries, action) => {
   switch (action.type) {
-    case actionTypes.UPDATE_INCLUDE_TOILTRIES:
-      return action.includeToiltries;
+    case actionTypes.UPDATE_INCLUDE_TOILETRIES:
+      return action.trueOrFalse;
     default:
       return state;
   }

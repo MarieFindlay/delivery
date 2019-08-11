@@ -2,9 +2,9 @@ import React from "react";
 import GLOBALS from './../../globals';
 import styled from 'styled-components'
 
-export const Button = ({ text, handleClick, color, size, isSelected }) => {
+export const Button = ({ text, handleClick, color, size, selected }) => {
     return (
-        <SButton isSelected={isSelected} size={size} color={color} onClick={handleClick}>{text}</SButton>
+        <SButton selected={selected} size={size} color={color} onClick={handleClick}>{text}</SButton>
     )
 }
 

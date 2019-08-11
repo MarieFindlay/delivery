@@ -60,7 +60,6 @@ export default class extends React.Component {
     }
 
     render(){
-        console.log(this.props.goToNextPage);
         return (
             <SDatesPageContainer color={GLOBALS.COLORS.BEIGE}>
                 <SPageTitle>When shall we deliver your first box?</SPageTitle>

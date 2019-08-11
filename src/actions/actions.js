@@ -66,10 +66,10 @@ export const updateNumberOfPeople = (numberOfPeople) => {
   }
 }
 
-export const updateIncludeToiletries = (includeToiletries) => {
+export const updateIncludeToiletries = (trueOrFalse) => {
   return {
     type: actionTypes.UPDATE_INCLUDE_TOILETRIES,
-    includeToiletries
+    trueOrFalse
   }
 }
 

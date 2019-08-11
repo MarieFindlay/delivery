@@ -7,7 +7,7 @@ ChoosePeople.propTypes = {
     numberOfPeople: PropTypes.number.isRequired,
     goToNextPage: PropTypes.func.isRequired,
     updateNumberOfPeople: PropTypes.func.isRequired,
-  }
+}
   
 const mapStateToProps = state => ({
     numberOfPeople: state.numberOfPeople,

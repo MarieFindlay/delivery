@@ -5,9 +5,8 @@ import { SText } from './StyledComponents';
 import GLOBALS from './../../globals';
 
 const CardButton = ({ onClick, title, subtitle, selected }) => {
-    console.log(title, selected);
     return (
-        <SCardButton onClick={onClick}>
+        <SCardButton selected={selected} onClick={onClick}>
             <SCardTitle>{title}</SCardTitle>
             <SCardSubtitle>{subtitle}</SCardSubtitle>
         </SCardButton>
@@ -16,12 +15,13 @@ const CardButton = ({ onClick, title, subtitle, selected }) => {
 
 export default CardButton;
 
-const selectedBorderStyle = 'black solid 5px';
+const selectedBorderStyle = `${GLOBALS.COLORS.MUTED_CRIMSON} solid 2px`;
+const unselectedBorderStyle = 'transparent solid 2px';
 
 const SCardButton = styled(SButton)`
     width: 100%;
+    border: ${props => props.selected ? selectedBorderStyle : unselectedBorderStyle};
     margin-top: ${GLOBALS.DIMENSIONS.RESP_MARGIN};
-    background-color: ${props => props.selected ? GLOBALS.COLORS.CRIMSON : GLOBALS.COLORS.CREAM};
     box-shadow: ${GLOBALS.EFFECTS.SHADOW};
     display: flex;
     flex-direction: column;
@@ -30,7 +30,6 @@ const SCardButton = styled(SButton)`
     padding-bottom: ${GLOBALS.DIMENSIONS.RESP_MARGIN};
     padding-right: ${GLOBALS.DIMENSIONS.RESP_MARGIN / 2};
     padding-left: ${GLOBALS.DIMENSIONS.RESP_MARGIN / 2};
-    border: ${props => props.selected ? selectedBorderStyle : 'none'};
 `
 
 const SCardTitle = styled(SText)`

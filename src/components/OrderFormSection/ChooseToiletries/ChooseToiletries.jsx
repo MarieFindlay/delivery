@@ -13,21 +13,41 @@ export default class extends React.Component {
 
     componentDidMount(){
         this.setState({
-            includeToiletries: true,
+            includeToiletries: this.props.includeToiletries,
         })
     }
 
     handleClickNext = () => {
+        this.props.updateIncludeToiletries(this.state.includeToiletries);
         this.props.goToNextPage();
+    }
+
+    toggleIncludeToiletries = (trueOrFalse) => {
+        this.setState({
+            includeToiletries: trueOrFalse,
+        })
     }
 
     render(){
         return (
             <SPageContainer color={GLOBALS.COLORS.BEIGE}>
                 <SPageTitle>Do you need toiletries?</SPageTitle>
-                <CardButton selected={this.state.includeToiletries} title="Yes" subtitle="add toiletries for minimal fuss"/>
-                <CardButton selected={!this.state.includeToiletries} title="No" subtitle="stick to household essentials"/>
-                <BackNextButton onClickBack={this.props.goToPrevPage} onClickNext={this.handleClickNext}/>
+                <CardButton
+                    title="Yes"
+                    subtitle="add toiletries for minimal fuss"
+                    selected={this.state.includeToiletries} 
+                    onClick={() => this.toggleIncludeToiletries(true)}
+                />
+                <CardButton 
+                    title="No"
+                    subtitle="stick to household essentials"
+                    selected={!this.state.includeToiletries}
+                    onClick={() => this.toggleIncludeToiletries(false)}
+                />
+                <BackNextButton 
+                    onClickBack={this.props.goToPrevPage}
+                    onClickNext={this.handleClickNext}
+                />
             </SPageContainer>
         )
     }
