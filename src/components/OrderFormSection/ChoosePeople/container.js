@@ -10,7 +10,7 @@ ChoosePeople.propTypes = {
 }
   
 const mapStateToProps = state => ({
-    numberOfPeople: state.numberOfPeople,
+    numberOfPeopleOnMount: state.numberOfPeople,
   });
 
 const mapDispatchToProps = dispatch => {

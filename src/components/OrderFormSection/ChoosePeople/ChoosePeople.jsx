@@ -10,13 +10,9 @@ const MAX_NUMBER_OF_PEOPLE = 20;
 export default class extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
-    }
-
-    componentDidMount() {
-        this.setState({
-            numberOfPeople: this.props.numberOfPeople
-        })
+        this.state = {
+            numberOfPeople: this.props.numberOfPeopleOnMount
+        };
     }
 
     handleClickPlus = () => {

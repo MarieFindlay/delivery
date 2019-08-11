@@ -1,2 +1,2 @@
-import AmountPicker from './container';
+import AmountPicker from './AmountPicker';
 export default AmountPicker;

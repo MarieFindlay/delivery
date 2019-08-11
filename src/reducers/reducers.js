@@ -6,6 +6,7 @@ const initialState = {
   currentPage: 0,
   numberOfPeople: 1,
   includeToiletries: true,
+  hasDishwasher: true,
   basket: {
     itemQuantitiesById: {},
     regularity: 1, // comes every 1 month. Options: 1, 2, 3.
@@ -39,6 +40,15 @@ const numberOfPeople = (state = initialState.numberOfPeople, action) => {
 const includeToiletries = (state = initialState.includeToiletries, action) => {
   switch (action.type) {
     case actionTypes.UPDATE_INCLUDE_TOILETRIES:
+      return action.trueOrFalse;
+    default:
+      return state;
+  }
+}
+
+const hasDishwasher = (state = initialState.hasDishwasher, action) => {
+  switch (action.type) {
+    case actionTypes.UPDATE_HAS_DISHWASHER:
       return action.trueOrFalse;
     default:
       return state;
@@ -85,7 +95,8 @@ const rootReducer = combineReducers({
   currentPage,
   basket,
   numberOfPeople,
-  includeToiletries
+  includeToiletries,
+  hasDishwasher
 });
 
 export default rootReducer;

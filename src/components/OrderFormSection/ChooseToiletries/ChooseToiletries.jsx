@@ -8,13 +8,9 @@ import { SPageTitle, SPageContainer } from './../../commons/StyledComponents';
 export default class extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { };
-    }
-
-    componentDidMount(){
-        this.setState({
-            includeToiletries: this.props.includeToiletries,
-        })
+        this.state = {
+            includeToiletries: this.props.includeToiletriesOnMount,
+         };
     }
 
     handleClickNext = () => {

@@ -3,16 +3,16 @@ import PropTypes from "prop-types";
 import { nextPage, prevPage, updateIncludeToiletries } from './../../../actions/actions';
 import ChooseToiletries from './ChooseToiletries';
 
-
 ChooseToiletries.propTypes = {
     includeToiletries: PropTypes.bool.isRequired,
     goToNextPage: PropTypes.func.isRequired,
     goToPrevPage: PropTypes.func.isRequired,
     updateIncludeToiletries: PropTypes.func.isRequired,
 }
+
 const mapStateToProps = state => {
     return {
-        includeToiletries: state.includeToiletries,
+        includeToiletriesOnMount: state.includeToiletries,
     }
 }
 

@@ -12,6 +12,7 @@ export const actionTypes = {
     UPDATE_ADDRESS: 'UPDATE_ADDRESS',
     UPDATE_NUMBER_OF_PEOPLE: 'INCREASE_NUMBER_OF_PEOPLE',
     UPDATE_INCLUDE_TOILETRIES: 'UPDATE_INCLUDE_TOILETRIES',
+    UPDATE_HAS_DISHWASHER: 'UPDATE_HAS_DISHWASHER',
   };
   
 /* Action Creators */
@@ -69,6 +70,13 @@ export const updateNumberOfPeople = (numberOfPeople) => {
 export const updateIncludeToiletries = (trueOrFalse) => {
   return {
     type: actionTypes.UPDATE_INCLUDE_TOILETRIES,
+    trueOrFalse
+  }
+}
+
+export const updateHasDishwasher = (trueOrFalse) => {
+  return {
+    type: actionTypes.UPDATE_HAS_DISHWASHER,
     trueOrFalse
   }
 }
