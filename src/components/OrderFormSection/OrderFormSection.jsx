@@ -10,7 +10,7 @@ import PaymentDetails from './PaymentDetails/index';
 const OrderFormSection = ({ pageNumber }) => {
   switch(pageNumber) {
     case 0:
-        return <PaymentDetails/>
+        return <ChoosePeople/>
     case 1:
         return <ChooseToiletries/>
     case 2:
@@ -21,6 +21,8 @@ const OrderFormSection = ({ pageNumber }) => {
         return <ChooseDates/>
     case 5:
         return <ChooseAddress/>
+    case 6:
+        return <PaymentDetails/>
     default:
         return <ChoosePeople/>
   } 
