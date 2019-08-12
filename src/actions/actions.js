@@ -13,6 +13,7 @@ export const actionTypes = {
     UPDATE_HAS_DISHWASHER: 'UPDATE_HAS_DISHWASHER',
     UPDATE_SCHEDULE: 'UPDATE_SCHEDULE',
     UPDATE_ADDRESS: 'UPDATE_ADDRESS',
+    UPDATE_CONTACT_DETAILS: 'UPDATE_CONTACT_DETAILS',
   };
   
 /* Action Creators */
@@ -28,21 +29,6 @@ export const prevPage = () => {
     type: actionTypes.GO_TO_PREV_PAGE
   };
 };
-
-export const addItemsToBasket = itemIds => {
-  return {
-    type: actionTypes.ADD_ITEMS_TO_BASKET,
-    itemIds
-  };
-};
-
-export const updateQuantitiesAndSchedule = (itemQuantitiesById, regularity) => {
-  return {
-    type: actionTypes.UPDATE_QUANTITIES_AND_SCHEDULE,
-    itemQuantitiesById,
-    regularity
-  }
-}
 
 export const updateNumberOfPeople = (numberOfPeople) => {
   return {
@@ -82,27 +68,11 @@ export const updateAddress = (postcode, streetAddress) => {
   }
 }
 
-
-//Not needed - to remove
-
-export const increaseQuantity = itemId => {
+export const updateContactDetails = (emailAddress, phoneNumber) => {
   return {
-    type: actionTypes.INCREASE_QUANTITY,
-    itemId
-  };
-};
-
-export const decreaseQuantity = itemId => {
-  return {
-    type: actionTypes.DECREASE_QUANTITY,
-    itemId
-  };
-};
-
-export const updateQuantities = quantitiesById => {
-  return {
-    type: actionTypes.UPDATE_QUANTITIES,
-    quantitiesById
+    type: actionTypes.UPDATE_CONTACT_DETAILS,
+    emailAddress,
+    phoneNumber,
   }
 }
 

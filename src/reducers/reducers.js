@@ -13,6 +13,8 @@ const initialState = {
   customScheduleDetails: '',
   postcode: '',
   streetAddress: '',
+  emailAddress: '',
+  phoneNumber: null,
 }
 
 const currentPage = (state = initialState.currentPage, action) => {
@@ -99,6 +101,24 @@ const streetAddress = (state = initialState.streetAddress, action) => {
   }
 }
 
+const emailAddress = (state = initialState.emailAddress, action) => {
+  switch(action.type) {
+    case actionTypes.UPDATE_CONTACT_DETAILS:
+      return action.emailAddress;
+    default:
+      return state;
+  }
+}
+
+const phoneNumber = (state = initialState.phoneNumber, action) => {
+  switch(action.type) {
+    case actionTypes.UPDATE_CONTACT_DETAILS:
+      return action.phoneNumber;
+    default:
+      return state;
+  }
+}
+
 const rootReducer = combineReducers({
   currentPage,
   numberOfPeople,
@@ -108,7 +128,9 @@ const rootReducer = combineReducers({
   repeatDeliverySchedule,
   customScheduleDetails,
   postcode,
-  streetAddress
+  streetAddress,
+  emailAddress,
+  phoneNumber
 });
 
 export default rootReducer;
