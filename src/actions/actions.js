@@ -73,11 +73,12 @@ export const updateHasDishwasher = (trueOrFalse) => {
   }
 }
 
-export const updateSchedule = (firstDeliveryDate, repeatDeliverySchedule) => {
+export const updateSchedule = (firstDeliveryDate, repeatDeliverySchedule, customScheduleDetails) => {
   return {
     type: actionTypes.UPDATE_SCHEDULE,
     firstDeliveryDate,
-    repeatDeliverySchedule
+    repeatDeliverySchedule,
+    customScheduleDetails,
   }
 }
 

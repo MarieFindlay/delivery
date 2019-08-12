@@ -1,24 +1,20 @@
 import React from "react";
-import DayPicker from 'react-day-picker';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 import GLOBALS from './../../../globals';
 import { getNthDayFromDate } from './../../../utils/utils';
+import { REPEAT_SCHEDULES } from './../../../data/dummyData';
 import { SPageTitle, SText, SInput } from './../../../components/commons/StyledComponents';
 import BackNextButton from './../../commons/BackNextButton';
 import { SDatesPageContainer, SDayPickerContainer, SRepeatScheduleContainer, SFollowUpQuestion, SDateButton, dayPickerInputStyles } from './styled';
 
-const REPEAT_STYLES = {
-    CUSTOM: 'CUSTOM',
-    SAME_DAY: 'SAME_DAY',
-}
 export default class extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             selectedDay: this.props.firstDeliveryDateOnMount,
-            selectedRepeatStyle: this.props.repeatStyleOnMount,
-            customInput: this.props.customInputOnMount,
+            selectedRepeatSchedule: this.props.repeatDeliveryScheduleOnMount,
+            customScheduleDetails: this.props.customScheduleDetailsOnMount,
         };
     }
 
@@ -32,30 +28,32 @@ export default class extends React.Component {
         const { selectedDay } = this.state;
         const nthDay = getNthDayFromDate(selectedDay);
         return [
-            {style: REPEAT_STYLES.SAME_DAY, label: `${nthDay} of each month`},
-            {style: REPEAT_STYLES.CUSTOM, label: 'Custom'}
+            {style: REPEAT_SCHEDULES.SAME_DAY, label: `${nthDay} of each month`},
+            {style: REPEAT_SCHEDULES.CUSTOM, label: 'Custom'}
         ]
     }
 
     handleChooseRepeatStyle = style => {
         this.setState({
-            selectedRepeatStyle: style,
+            selectedRepeatSchedule: style,
         })
     }
 
     handleCustomInputChange = (event) => {
         this.setState({
-            customInput: event.target.value
+            customScheduleDetails: event.target.value
         })
     }
 
     handleClickNext = () => {
+        const { selectedDay, selectedRepeatSchedule, customScheduleDetails} = this.state;
+        this.props.updateSchedule(selectedDay, selectedRepeatSchedule, customScheduleDetails);
         this.props.goToNextPage();
     }
 
     render(){
-        const { selectedDay, selectedRepeatStyle } = this.state;
-        const showCustomInputField = selectedRepeatStyle === REPEAT_STYLES.CUSTOM;
+        const { selectedDay, selectedRepeatSchedule } = this.state;
+        const showCustomInputField = selectedRepeatSchedule === REPEAT_SCHEDULES.CUSTOM;
         return (
             <SDatesPageContainer color={GLOBALS.COLORS.BEIGE}>
                 <SPageTitle>When shall we deliver your first box?</SPageTitle>
@@ -73,7 +71,7 @@ export default class extends React.Component {
                             return (
                             <SDateButton
                                 key={option.style}
-                                selected={option.style === selectedRepeatStyle}
+                                selected={option.style === selectedRepeatSchedule}
                                 onClick={() => this.handleChooseRepeatStyle(option.style)}
                             >
                                 {option.label}
@@ -84,7 +82,7 @@ export default class extends React.Component {
                             <SInput 
                                 type="text"
                                 placeholder={`Tell us what schedule suits you!`}
-                                value={this.state.customInput}
+                                value={this.state.customScheduleDetails}
                                 onChange={this.handleCustomInputChange}
                         />}
                         <SText>You can change your delivery dates at any time.</SText>

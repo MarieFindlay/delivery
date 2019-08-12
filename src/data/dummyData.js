@@ -1,3 +1,8 @@
+export const REPEAT_SCHEDULES = {
+    CUSTOM: 'CUSTOM',
+    SAME_DAY: 'SAME_DAY',
+}
+
 export const dummyItems = [
     {
         amount: 1,
