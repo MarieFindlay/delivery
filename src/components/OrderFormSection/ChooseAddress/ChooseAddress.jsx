@@ -9,9 +9,9 @@ export default class extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            postcode: '',
-            addresses: null,
-            selectedAddress: '',
+            postcode: this.props.postcodeOnMount,
+            addresses: '',
+            selectedAddress: this.props.streetAddressOnMount,
             errorMessage: null,
         };
     }
@@ -50,7 +50,7 @@ export default class extends React.Component {
     }
 
     handleClickNext = () => {
-        this.props.updateAddress(this.state.selectedAddress, this.state.postcode);
+        this.props.updateAddress(this.state.postcode, this.state.selectedAddress);
         this.props.goToNextPage();
     }
 

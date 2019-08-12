@@ -12,7 +12,7 @@ import OrderComplete from './OrderComplete/index';
 const OrderFormSection = ({ pageNumber }) => {
   switch(pageNumber) {
     case 0:
-        return <ChooseDates/>
+        return <ChooseAddress/>
     case 1:
         return <ChooseToiletries/>
     case 2:

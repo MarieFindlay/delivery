@@ -11,6 +11,8 @@ const initialState = {
   firstDeliveryDate: null,
   repeatDeliverySchedule: REPEAT_SCHEDULES.SAME_DAY,
   customScheduleDetails: '',
+  postcode: '',
+  streetAddress: '',
 }
 
 const currentPage = (state = initialState.currentPage, action) => {
@@ -79,6 +81,24 @@ const customScheduleDetails = (state = initialState.customScheduleDetails, actio
   }
 }
 
+const postcode = (state = initialState.postcode, action) => {
+  switch(action.type) {
+    case actionTypes.UPDATE_ADDRESS:
+      return action.postcode;
+    default:
+      return state;
+  }
+}
+
+const streetAddress = (state = initialState.streetAddress, action) => {
+  switch(action.type) {
+    case actionTypes.UPDATE_ADDRESS:
+      return action.streetAddress;
+    default:
+      return state;
+  }
+}
+
 const rootReducer = combineReducers({
   currentPage,
   numberOfPeople,
@@ -86,7 +106,9 @@ const rootReducer = combineReducers({
   hasDishwasher,
   firstDeliveryDate,
   repeatDeliverySchedule,
-  customScheduleDetails
+  customScheduleDetails,
+  postcode,
+  streetAddress
 });
 
 export default rootReducer;

@@ -4,13 +4,14 @@ import ChooseAddress from './ChooseAddress.jsx';
 
 const mapStateToProps = state => {
     return {
-        numberOfPeople: state.numberOfPeople,
+        postcodeOnMount: state.postcode,
+        streetAddressOnMount: state.streetAddress,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateAddress: (address, postcode) => dispatch(updateAddress(address, postcode)),
+        updateAddress: (postcode, streetAddress) => dispatch(updateAddress(postcode, streetAddress)),
         goToNextPage: () => dispatch(nextPage()),
         goToPrevPage: () => dispatch(prevPage())
      }

@@ -8,11 +8,11 @@ export const actionTypes = {
     DECREASE_QUANTITY: 'DECREASE_QUANTITY',
     UPDATE_QUANTITIES: 'UPDATE_QUANTITIES',
     UPDATE_QUANTITIES_AND_SCHEDULE: 'UPDATE_QUANTITIES_AND_SCHEDULE',
-    UPDATE_ADDRESS: 'UPDATE_ADDRESS',
     UPDATE_NUMBER_OF_PEOPLE: 'INCREASE_NUMBER_OF_PEOPLE',
     UPDATE_INCLUDE_TOILETRIES: 'UPDATE_INCLUDE_TOILETRIES',
     UPDATE_HAS_DISHWASHER: 'UPDATE_HAS_DISHWASHER',
     UPDATE_SCHEDULE: 'UPDATE_SCHEDULE',
+    UPDATE_ADDRESS: 'UPDATE_ADDRESS',
   };
   
 /* Action Creators */
@@ -44,14 +44,6 @@ export const updateQuantitiesAndSchedule = (itemQuantitiesById, regularity) => {
   }
 }
 
-export const updateAddress = (address, postcode) => {
-  return {
-    type: actionTypes.UPDATE_ADDRESS,
-    address,
-    postcode
-  }
-}
-
 export const updateNumberOfPeople = (numberOfPeople) => {
   return {
     type: actionTypes.UPDATE_NUMBER_OF_PEOPLE,
@@ -79,6 +71,14 @@ export const updateSchedule = (firstDeliveryDate, repeatDeliverySchedule, custom
     firstDeliveryDate,
     repeatDeliverySchedule,
     customScheduleDetails,
+  }
+}
+
+export const updateAddress = (postcode, streetAddress) => {
+  return {
+    type: actionTypes.UPDATE_ADDRESS,
+    postcode,
+    streetAddress,
   }
 }
 
