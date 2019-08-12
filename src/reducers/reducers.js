@@ -70,7 +70,6 @@ const repeatDeliverySchedule = (state = initialState.repeatDeliverySchedule, act
 }
 
 const customScheduleDetails = (state = initialState.customScheduleDetails, action) => {
-  console.log(action.repeatDeliverySchedule);
   switch(action.type) {
     case actionTypes.UPDATE_SCHEDULE:
       if (action.repeatDeliverySchedule === REPEAT_SCHEDULES.SAME_DAY) { return '' };
