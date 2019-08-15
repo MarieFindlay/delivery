@@ -33,7 +33,7 @@ export default class extends React.Component {
     render(){
         return (
             <SPageContainer color={GLOBALS.COLORS.BEIGE}>
-                <SPageTitle>Last thing! How can we contact you?</SPageTitle>
+                <SPageTitle>How can we contact you?</SPageTitle>
                 <SInput type="text" placeholder="Type your email address" value={this.state.emailAddress} onChange={this.handleEmailInputChange}/>
                 <SPhoneNumber type="text" placeholder="And your phone number" value={this.state.phoneNumber} onChange={this.handlePhoneNumberInputChange}/>
                 <BackNextButton onClickBack={this.props.goToPrevPage} onClickNext={this.handleClickNext}/>
