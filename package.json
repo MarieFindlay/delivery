@@ -4,12 +4,15 @@
   "private": true,
   "dependencies": {
     "classnames": "^2.2.6",
+    "http-proxy-middleware": "^0.19.1",
+    "netlify-lambda": "^1.5.1",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
     "react-day-picker": "^7.3.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
     "react-scripts": "2.1.3",
+    "react-stripe-elements": "^4.0.1",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.7",
     "redux-thunk": "^2.3.0",
@@ -35,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "stripe": "^7.8.0"
   }
 }

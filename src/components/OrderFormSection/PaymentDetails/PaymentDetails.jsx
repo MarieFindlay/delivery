@@ -1,4 +1,6 @@
 import React from "react";
+import { Elements, StripeProvider } from 'react-stripe-elements';
+import CheckoutForm from './Components/CheckoutForm';
 import GLOBALS from './../../../globals';
 import BackNextButton from './../../commons/BackNextButton';
 import { SPageContainer, SPageTitle, SInput } from './../../commons/StyledComponents';
@@ -17,12 +19,11 @@ export default class extends React.Component {
     render(){
         return (
             <SPageContainer color={GLOBALS.COLORS.BEIGE}>
-                <SPageTitle>How do you want to pay?</SPageTitle>
-                <SLongCardNumber type="number" placeholder={`Type your long card number`}/>
-                <SExtraCardDetails>
-                    <SSmallInput type="date"/>
-                    <SSmallInput type="number" placeholder='csv'/>
-                </SExtraCardDetails>
+                <StripeProvider apiKey="pk_test_uGLYOYBuOKBYFlqIcY7RFcc600aGtHolkS">
+                    <Elements>
+                        <CheckoutForm />
+                    </Elements>
+                </StripeProvider>
                 <BackNextButton onClickBack={this.props.goToPrevPage} onClickNext={this.handleClickNext}/>
             </SPageContainer>
         )
