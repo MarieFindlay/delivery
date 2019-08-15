@@ -4,7 +4,6 @@ import CheckoutForm from './Components/CheckoutForm';
 import GLOBALS from './../../../globals';
 import BackNextButton from './../../commons/BackNextButton';
 import { SPageContainer, SPageTitle, SInput } from './../../commons/StyledComponents';
-import { SExtraCardDetails, SSmallInput, SLongCardNumber } from './styled';
 
 export default class extends React.Component {
     constructor(props) {
@@ -12,19 +11,19 @@ export default class extends React.Component {
         this.state = { };
     }
 
-    handleClickNext = () => {
+    handlePaymentComplete = () => {
         this.props.goToNextPage();
     }
 
     render(){
         return (
             <SPageContainer color={GLOBALS.COLORS.BEIGE}>
-                <StripeProvider apiKey="pk_test_uGLYOYBuOKBYFlqIcY7RFcc600aGtHolkS">
+                <SPageTitle>Last thing! How would you like to pay?</SPageTitle>
+                <StripeProvider apiKey={GLOBALS.API_KEYS.STRIPE}>
                     <Elements>
-                        <CheckoutForm />
+                        <CheckoutForm handlePaymentComplete={this.handlePaymentComplete}/>
                     </Elements>
                 </StripeProvider>
-                <BackNextButton onClickBack={this.props.goToPrevPage} onClickNext={this.handleClickNext}/>
             </SPageContainer>
         )
     }

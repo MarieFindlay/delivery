@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
 
-function CheckoutForm({ stripe }) {
+function CheckoutForm({ stripe, handlePaymentComplete }) {
   const [status, setStatus] = useState('default');
 
-  const submit = async e => {
-    console.log('inside function');
-    e.preventDefault();
-
+  const submit = async event => {
+    event.preventDefault();
+    
     setStatus('submitting');
-
+    
     try {
       let { token } = await stripe.createToken({ name: 'Name' });
-      console.log(token);
 
-      let response = await fetch('/.netlify/functions/handler', {
+      let response = await fetch('/.netlify/functions/createCharge', {
         method: 'POST',
         body: JSON.stringify({
           amount: 100,
@@ -26,6 +24,7 @@ function CheckoutForm({ stripe }) {
 
       if (response.ok) {
         setStatus('complete');
+        handlePaymentComplete();
       } else {
         throw new Error('Network response was not ok.');
       }
@@ -34,21 +33,19 @@ function CheckoutForm({ stripe }) {
     }
   };
 
-  if (status === 'complete') {
-    return <div className="CheckoutForm-complete">Payment successful!</div>;
-  }
-
   return (
     <form className="CheckoutForm" onSubmit={submit}>
-      <h4>Would you like to complete the purchase?</h4>
       <CardElement />
-      <button
-        className="CheckoutForm-button"
-        type="submit"
-        disabled={status === 'submitting'}
-      >
-        {status === 'submitting' ? 'Submitting' : 'Submit Order'}
-      </button>
+      <div>
+        <button>Back</button>
+        <button
+          className="CheckoutForm-button"
+          type="submit"
+          disabled={status === 'submitting'}
+        >
+          {status === 'submitting' ? 'Submitting' : 'Place Order'}
+        </button>
+      </div>
       {status === 'error' && (
         <div className="CheckoutForm-error">Something went wrong.</div>
       )}
