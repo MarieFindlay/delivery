@@ -24,9 +24,9 @@ const OrderFormSection = ({ pageNumber }) => {
     case 5:
         return <ChooseAddress/>
     case 6:
-        return <PaymentDetails/>
-    case 7:
         return <ContactDetails/>
+    case 7:
+        return <PaymentDetails/>
     default:
         return <OrderComplete/>
   } 
