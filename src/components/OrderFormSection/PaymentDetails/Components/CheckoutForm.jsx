@@ -31,7 +31,7 @@ function CheckoutForm({ stripe, handlePaymentComplete }) {
     try {
       let { token } = await stripe.createToken({ name: 'Name' });
 
-      let response = await fetch('/.netlify/functions/createCharge', {
+      let response = await fetch('/.netlify/functions/createSubscription', {
         method: 'POST',
         body: JSON.stringify({
           amount: 100,
