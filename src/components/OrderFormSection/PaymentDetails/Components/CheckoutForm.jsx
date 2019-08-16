@@ -1,13 +1,32 @@
 import React, { useState } from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
 
+const STATUS_TYPES = {
+  DEFAULT: 'DEFAULT',
+  SUBMITTING: 'SUBMITTING',
+  COMPLETE: 'COMPLETE',
+}
+
+const ERROR_TYPES = {
+  STRIPE_ERROR: 'PAYMENT_ERROR',
+  FORM_ERROR: 'FORM_ERROR'
+}
+
+const CUSTOMER_ERROR_ACTION = `Please check your details and try again. If you're still having problems, please get in touch on 07793009554.`
+
+const ERROR_MESSAGES = {
+  [ERROR_TYPES.STRIPE_ERROR]: `We're sorry, Stripe wasn't able to process your payment. ${CUSTOMER_ERROR_ACTION}`,
+  [ERROR_TYPES.FORM_ERROR]: `Something went wrong submitting your card details. ${CUSTOMER_ERROR_ACTION}`
+}
+
 function CheckoutForm({ stripe, handlePaymentComplete }) {
-  const [status, setStatus] = useState('default');
+  const [status, setStatus] = useState(STATUS_TYPES.DEFAULT);
+  const [error, setError] = useState(null);
 
   const submit = async event => {
     event.preventDefault();
     
-    setStatus('submitting');
+    setStatus(STATUS_TYPES.SUBMITTING);
     
     try {
       let { token } = await stripe.createToken({ name: 'Name' });
@@ -20,34 +39,33 @@ function CheckoutForm({ stripe, handlePaymentComplete }) {
         }),
       });
 
-      console.log('response: ', response);
-
       if (response.ok) {
-        setStatus('complete');
+        setStatus(STATUS_TYPES.COMPLETE);
         handlePaymentComplete();
       } else {
-        throw new Error('Network response was not ok.');
+        setStatus(STATUS_TYPES.DEFAULT);
+        setError(ERROR_TYPES.STRIPE_ERROR);
       }
     } catch (err) {
-      setStatus('error');
+      setStatus(STATUS_TYPES.DEFAULT);
+      setError(ERROR_TYPES.FORM_ERROR);
     }
   };
 
   return (
-    <form className="CheckoutForm" onSubmit={submit}>
+    <form onSubmit={submit}>
       <CardElement />
       <div>
         <button>Back</button>
         <button
-          className="CheckoutForm-button"
           type="submit"
-          disabled={status === 'submitting'}
+          disabled={status === STATUS_TYPES.SUBMITTING}
         >
-          {status === 'submitting' ? 'Submitting' : 'Place Order'}
+          {status === STATUS_TYPES.SUBMITTING ? 'Submitting' : 'Place Order'}
         </button>
       </div>
-      {status === 'error' && (
-        <div className="CheckoutForm-error">Something went wrong.</div>
+      {!!error && (
+        <div>{ERROR_MESSAGES[error]}</div>
       )}
     </form>
   );
