@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@sendgrid/mail": "^6.4.0",
     "classnames": "^2.2.6",
     "http-proxy-middleware": "^0.19.1",
     "netlify-lambda": "^1.5.1",
