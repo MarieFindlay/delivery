@@ -9,9 +9,8 @@ exports.handler = async(event) => {
   
     const data = JSON.parse(event.body);
 
-    // TO DO - add in proper error handling
-  
-    if (!data.token || parseInt(data.amount) < 1) {
+    // TO DO - add in proper error handling all the way through
+    if (!data.token || !data.name || !data.email || !data.plan || !data.quantity || !data.billing_cycle_anchor) {
       return {
         statusCode: 400,
         body: JSON.stringify({
@@ -20,12 +19,13 @@ exports.handler = async(event) => {
       }
     }
 
-    try {
+    const { name, email, token, plan, quantity, billing_cycle_anchor } = data;
 
+    try {
       const customer = await stripe.customers.create({
-        name: 'Marie Findlay',
-        email: 'marie.findlay@gmail.com',
-        source: data.token
+        name,
+        email,
+        source: token
       });
 
       if (!customer.id) {
@@ -39,7 +39,8 @@ exports.handler = async(event) => {
 
       const subscription = await stripe.subscriptions.create({
         customer: customer.id,
-        items: [{plan:'plan_FbxLVfmE69x1Pk', quantity: 1}],
+        items: [{plan, quantity}],
+        billing_cycle_anchor,
         collection_method: 'charge_automatically',
         expand: ['latest_invoice.payment_intent'],
       })

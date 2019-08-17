@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
+import moment from 'moment';
 
 const STATUS_TYPES = {
-  DEFAULT: 'DEFAULT',
+  INCOMPLETE: 'INCOMPLETE',
   SUBMITTING: 'SUBMITTING',
   COMPLETE: 'COMPLETE',
 }
@@ -20,7 +21,7 @@ const ERROR_MESSAGES = {
 }
 
 function CheckoutForm({ stripe, handlePaymentComplete }) {
-  const [status, setStatus] = useState(STATUS_TYPES.DEFAULT);
+  const [status, setStatus] = useState(STATUS_TYPES.INCOMPLETE);
   const [error, setError] = useState(null);
 
   const submit = async event => {
@@ -34,8 +35,12 @@ function CheckoutForm({ stripe, handlePaymentComplete }) {
       let response = await fetch('/.netlify/functions/createSubscription', {
         method: 'POST',
         body: JSON.stringify({
-          amount: 100,
+          name:'Marie Findlay',
+          email:'mariealicefindlay@gmail.com',
+          plan:'plan_FbxLVfmE69x1Pk',
+          quantity:1,
           token: token.id,
+          billing_cycle_anchor: moment().unix(),
         }),
       });
 
@@ -43,11 +48,11 @@ function CheckoutForm({ stripe, handlePaymentComplete }) {
         setStatus(STATUS_TYPES.COMPLETE);
         handlePaymentComplete();
       } else {
-        setStatus(STATUS_TYPES.DEFAULT);
+        setStatus(STATUS_TYPES.INCOMPLETE);
         setError(ERROR_TYPES.STRIPE_ERROR);
       }
     } catch (err) {
-      setStatus(STATUS_TYPES.DEFAULT);
+      setStatus(STATUS_TYPES.INCOMPLETE);
       setError(ERROR_TYPES.FORM_ERROR);
     }
   };
