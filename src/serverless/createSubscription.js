@@ -2,6 +2,7 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async(event) => {
+    // // Only allow POST
     if (event.httpMethod !== 'POST') {
       return { statusCode: 405, body: 'Method Not Allowed' };
     }
@@ -18,7 +19,7 @@ exports.handler = async(event) => {
       }
     }
 
-    const { name, email, token, plan, quantity, metadata } = data;
+    const { name, email, token, plan, quantity, metadata} = data;
 
     try {
       const customer = await stripe.customers.create({
@@ -27,7 +28,7 @@ exports.handler = async(event) => {
         source: token
       });
 
-      if (!customer || customer.id) {
+      if (!customer.id) {
         return { 
           statusCode: 401,
           body: JSON.stringify({ 
@@ -44,7 +45,7 @@ exports.handler = async(event) => {
         expand: ['latest_invoice.payment_intent'],
       })
 
-      if (!subscription || !subscription.id) {
+      if (!subscription.id) {
         return { 
           statusCode: 401,
           body: JSON.stringify({
@@ -65,7 +66,7 @@ exports.handler = async(event) => {
       return {
         statusCode: 400,
         body: JSON.stringify({
-          message: `${error}`,
+          message: `Error: ${error}`,
         }),
       }
     }

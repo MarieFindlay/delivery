@@ -1,0 +1,88 @@
+import GLOBALS from './globals';
+
+// 1 = once a month; 2 = every 2 months etc.
+export const regularities = [1, 2, 3];
+
+export const availableItems = [
+    {
+        id: 0,
+        name: 'handsoap',
+        image: GLOBALS.IMAGES.DOVE,
+        unit: '300ml',
+        weight: 0,
+        price: 0,
+        quantityInBasket: 0,
+    },
+    {
+        id: 1,
+        name: 'laundry tabs',
+        image: GLOBALS.IMAGES.DOVE,
+        unit: '300ml',
+        weight: 0,
+        price: 0,
+        quantityInBasket: 0,
+    },
+    {
+        id: 2,
+        name: 'washing up liquid',
+        image: GLOBALS.IMAGES.DOVE,
+        unit: '300ml',
+        weight: 0,
+        price: 0,
+        quantityInBasket: 0,
+    },
+    {
+        id: 3,
+        name: 'dishwasher tabs',
+        image: GLOBALS.IMAGES.DOVE,
+        unit: '300ml',
+        weight: 0,
+        price: 0,
+        quantityInBasket: 0,
+    },
+    {
+        id: 4,
+        name: 'laundry tabs',
+        image: GLOBALS.IMAGES.DOVE,
+        unit: '300ml',
+        weight: 0,
+        price: 0,
+        quantityInBasket: 0,
+    },
+    {
+        id: 5,
+        name: 'washing up liquid',
+        image: GLOBALS.IMAGES.DOVE,
+        unit: '300ml',
+        weight: 0,
+        price: 0,
+        quantityInBasket: 0,
+    },
+    {
+        id: 6,
+        name: 'dishwasher tabs',
+        image: GLOBALS.IMAGES.DOVE,
+        unit: '300ml',
+        weight: 0,
+        price: 0,
+        quantityInBasket: 0,
+    },
+    {
+        id: 7,
+        name: 'laundry tabs',
+        image: GLOBALS.IMAGES.DOVE,
+        unit: '300ml',
+        weight: 0,
+        price: 0,
+        quantityInBasket: 0,
+    },
+    {
+        id: 8,
+        name: 'washing up liquid',
+        image: GLOBALS.IMAGES.DOVE,
+        unit: '300ml',
+        weight: 0,
+        price: 0,
+        quantityInBasket: 0,
+    },
+]
