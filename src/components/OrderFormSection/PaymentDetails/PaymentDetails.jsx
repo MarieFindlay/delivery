@@ -2,8 +2,7 @@ import React from "react";
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import CheckoutForm from './Components/CheckoutForm';
 import GLOBALS from './../../../globals';
-import BackNextButton from './../../commons/BackNextButton';
-import { SPageContainer, SPageTitle, SInput } from './../../commons/StyledComponents';
+import { SPageContainer, SPageTitle } from './../../commons/StyledComponents';
 
 export default class extends React.Component {
     constructor(props) {
@@ -21,7 +20,11 @@ export default class extends React.Component {
                 <SPageTitle>Last thing! How would you like to pay?</SPageTitle>
                 <StripeProvider apiKey={GLOBALS.API_KEYS.STRIPE}>
                     <Elements>
-                        <CheckoutForm handlePaymentComplete={this.handlePaymentComplete}/>
+                        <CheckoutForm 
+                            handlePaymentComplete={this.handlePaymentComplete}
+                            subscriptionData={this.props.subscriptionData}
+                            subscriptionMetaData={this.props.subscriptionMetaData}
+                        />
                     </Elements>
                 </StripeProvider>
             </SPageContainer>

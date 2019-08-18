@@ -5,7 +5,7 @@ import NextButton from './../../commons/NextButton';
 import { SPageTitle, SPageContainer, SText } from './../../commons/StyledComponents';
 import { SGroupImage } from './styled';
 
-const MAX_NUMBER_OF_PEOPLE = 20;
+const MAX_NUMBER_OF_PEOPLE = 4;
 
 export default class extends React.Component {
     constructor(props) {

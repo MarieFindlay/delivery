@@ -1,5 +1,4 @@
 import React from "react";
-import { SContainer } from './../../commons/StyledComponents';
 import { SHowItWorksContainer, SParagraph, SHowItWorksTitle, SHowItWorksStepsContainer, SStepContainer, SStepIcon } from './styled';
 import GLOBALS from './../../../globals';
 

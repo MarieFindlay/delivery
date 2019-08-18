@@ -8,11 +8,6 @@ const width = {
     desktop: '2560px'
   }
 
-const height = {
-    mobileS: '600px',
-    mobileM: '675px',
-}
-
   export const deviceWidth = {
     mobileS: `(min-width: ${width.mobileS})`,
     mobileM: `(min-width: ${width.mobileM})`,

@@ -1,6 +1,6 @@
 import React from "react";
 import GLOBALS from './../../../globals';
-import { SPageContainer, SPageTitle, SInput, SText } from './../../commons/StyledComponents';
+import { SPageContainer, SPageTitle, SText } from './../../commons/StyledComponents';
 
 export default class extends React.Component {
     constructor(props) {

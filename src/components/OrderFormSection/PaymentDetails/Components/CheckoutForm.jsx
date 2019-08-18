@@ -1,26 +1,9 @@
 import React, { useState } from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
-import moment from 'moment';
+import { STATUS_TYPES, ERROR_TYPES, ERROR_MESSAGES } from '../../../../consts/checkoutConsts';
+import GLOBALS from '../../../../globals';
 
-const STATUS_TYPES = {
-  INCOMPLETE: 'INCOMPLETE',
-  SUBMITTING: 'SUBMITTING',
-  COMPLETE: 'COMPLETE',
-}
-
-const ERROR_TYPES = {
-  STRIPE_ERROR: 'PAYMENT_ERROR',
-  FORM_ERROR: 'FORM_ERROR'
-}
-
-const CUSTOMER_ERROR_ACTION = `Please check your details and try again. If you're still having problems, please get in touch on 07793009554.`
-
-const ERROR_MESSAGES = {
-  [ERROR_TYPES.STRIPE_ERROR]: `We're sorry, Stripe wasn't able to process your payment. ${CUSTOMER_ERROR_ACTION}`,
-  [ERROR_TYPES.FORM_ERROR]: `Something went wrong submitting your card details. ${CUSTOMER_ERROR_ACTION}`
-}
-
-function CheckoutForm({ stripe, handlePaymentComplete }) {
+const CheckoutForm = ({ stripe, handlePaymentComplete, subscriptionData, subscriptionMetaData }) => {
   const [status, setStatus] = useState(STATUS_TYPES.INCOMPLETE);
   const [error, setError] = useState(null);
 
@@ -30,17 +13,14 @@ function CheckoutForm({ stripe, handlePaymentComplete }) {
     setStatus(STATUS_TYPES.SUBMITTING);
     
     try {
-      let { token } = await stripe.createToken({ name: 'Name' });
+      const { token } = await stripe.createToken();
 
-      let response = await fetch('/.netlify/functions/createSubscription', {
+      const response = await fetch(GLOBALS.API_URLS.CREATE_SUBSCRIPTION, {
         method: 'POST',
         body: JSON.stringify({
-          name:'Marie Findlay',
-          email:'mariealicefindlay@gmail.com',
-          plan:'plan_FbxLVfmE69x1Pk',
-          quantity:1,
+          ...subscriptionData,
+          metadata: subscriptionMetaData,
           token: token.id,
-          billing_cycle_anchor: moment().unix(),
         }),
       });
 
@@ -49,7 +29,7 @@ function CheckoutForm({ stripe, handlePaymentComplete }) {
         handlePaymentComplete();
       } else {
         setStatus(STATUS_TYPES.INCOMPLETE);
-        setError(ERROR_TYPES.STRIPE_ERROR);
+        setError(response.body.message);
       }
     } catch (err) {
       setStatus(STATUS_TYPES.INCOMPLETE);

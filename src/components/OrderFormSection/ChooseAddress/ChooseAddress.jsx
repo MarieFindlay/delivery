@@ -2,7 +2,7 @@ import React from "react";
 import GLOBALS from './../../../globals';
 import { SPageTitle, SPageContainer, SInput, SText } from './../../commons/StyledComponents';
 import BackNextButton from './../../commons/BackNextButton';
-import { getAddressesByPostcode } from './../../../utils/utils';
+import { getAddressesByPostcode } from './../../../utils/deliveryDetailsUtils';
 import { SForm, SSelect } from './styled';
 
 export default class extends React.Component {

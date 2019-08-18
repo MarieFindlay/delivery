@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
 import { actionTypes } from "../actions/actions";
-import { REPEAT_SCHEDULES } from './../data/dummyData';
+import { REPEAT_SCHEDULES } from '../consts/scheduleConsts';
 
 const initialState = {
   currentPage: 0,
@@ -13,6 +13,7 @@ const initialState = {
   customScheduleDetails: '',
   postcode: '',
   streetAddress: '',
+  customerName: 'Marie Findlay',
   emailAddress: '',
   phoneNumber: null,
 }
@@ -119,6 +120,10 @@ const phoneNumber = (state = initialState.phoneNumber, action) => {
   }
 }
 
+const customerName = (state = initialState.customerName, action) => {
+  return state;
+}
+
 const rootReducer = combineReducers({
   currentPage,
   numberOfPeople,
@@ -130,7 +135,8 @@ const rootReducer = combineReducers({
   postcode,
   streetAddress,
   emailAddress,
-  phoneNumber
+  phoneNumber,
+  customerName
 });
 
 export default rootReducer;

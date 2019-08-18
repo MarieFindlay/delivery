@@ -4,7 +4,6 @@ import { nextPage, updateNumberOfPeople } from './../../../actions/actions';
 import ChoosePeople from './ChoosePeople';
 
 ChoosePeople.propTypes = {
-    numberOfPeople: PropTypes.number.isRequired,
     goToNextPage: PropTypes.func.isRequired,
     updateNumberOfPeople: PropTypes.func.isRequired,
 }
