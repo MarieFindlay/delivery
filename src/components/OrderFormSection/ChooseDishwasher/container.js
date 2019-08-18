@@ -20,7 +20,7 @@ const mapDispatchToProps = dispatch => {
     return {
         goToNextPage: () => dispatch(nextPage()),
         goToPrevPage: () => dispatch(prevPage()),
-        updateHasDishwasher: (trueOrFalse) => dispatch(updateHasDishwasher(trueOrFalse))
+        updateHasDishwasher: (trueOrFalse) => dispatch(updateHasDishwasher(trueOrFalse)),
     };
 };
 

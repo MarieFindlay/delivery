@@ -4,7 +4,6 @@ import BackNextButton from './../../commons/BackNextButton';
 import { OrderDetails } from './Components/OrderDetails/OrderDetails';
 import { SPageTitle } from './../../commons/StyledComponents';
 import { SBoxPageContainer, SOrderSummary, SOrderHeadline, SOrderPrice, SOrderButton, SSubText } from './styled';
-import { dummyItems } from '../../../data/dummyData';
 
 export default class extends React.Component {
     constructor(props) {
@@ -17,15 +16,18 @@ export default class extends React.Component {
     }
 
     render(){
+        console.log(this.props.recommendedBox);
+        const { recommendedBox, numberOfPeople } = this.props;
+        const { price, items, plan} = recommendedBox;
         return (
             <SBoxPageContainer color={GLOBALS.COLORS.BEIGE}>
                 <SPageTitle>Your first juggle box!</SPageTitle>
                 <SOrderSummary>
-                    <SOrderHeadline>Monthly for 2</SOrderHeadline>
-                    <SOrderPrice>£14pp</SOrderPrice>
+                    <SOrderHeadline>Monthly for {numberOfPeople}</SOrderHeadline>
+                    <SOrderPrice>£{price / 100}pp</SOrderPrice>
                 </SOrderSummary>
                 <SOrderButton onClick={this.handleClickOrder}>Order now</SOrderButton>
-                <OrderDetails items={dummyItems}/>
+                <OrderDetails items={items}/>
                 <SSubText>Our algorithm calculates the perfect box based on average household usage per person. It's easy to adjust your amounts once you start!</SSubText>
                 <BackNextButton onClickBack={this.props.goToPrevPage} onClickNext={this.props.goToNextPage}/>
             </SBoxPageContainer>

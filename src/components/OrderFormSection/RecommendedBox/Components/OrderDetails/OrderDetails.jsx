@@ -6,7 +6,7 @@ export const OrderDetails = ({ items }) => {
     return (
         <SOrderDetails>
             {items.map(item => {
-                return <SText>{item.amount} {item.quantifiedName}</SText>
+                return <SText>{item}</SText>
             })}
         </SOrderDetails>
     )

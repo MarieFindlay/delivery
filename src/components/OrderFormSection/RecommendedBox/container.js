@@ -1,6 +1,14 @@
 import { connect } from 'react-redux';
 import { nextPage, prevPage } from './../../../actions/actions';
+import { getRecommendedBox } from './../../../utils/utils';
 import RecommendedBox from './RecommendedBox';
+
+const mapStateToProps = state => {
+    return {
+        recommendedBox: getRecommendedBox(state),
+        numberOfPeople: state.numberOfPeople,
+    };
+};
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -9,4 +17,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(undefined, mapDispatchToProps)(RecommendedBox);
+export default connect(mapStateToProps, mapDispatchToProps)(RecommendedBox);

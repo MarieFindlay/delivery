@@ -3,7 +3,7 @@ import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 import GLOBALS from './../../../globals';
 import { getNthDayFromDate } from './../../../utils/utils';
-import { REPEAT_SCHEDULES } from './../../../data/dummyData';
+import { REPEAT_SCHEDULES } from './../../../data/itemData';
 import { SPageTitle, SText, SInput } from './../../../components/commons/StyledComponents';
 import BackNextButton from './../../commons/BackNextButton';
 import { SDatesPageContainer, SDayPickerContainer, SRepeatScheduleContainer, SFollowUpQuestion, SDateButton, dayPickerInputStyles } from './styled';
