@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
-import moment from 'moment';
 
 const STATUS_TYPES = {
   INCOMPLETE: 'INCOMPLETE',
@@ -40,7 +39,6 @@ function CheckoutForm({ stripe, handlePaymentComplete }) {
           plan:'plan_FbxLVfmE69x1Pk',
           quantity:1,
           token: token.id,
-          billing_cycle_anchor: moment().unix(),
         }),
       });
 

@@ -10,7 +10,7 @@ exports.handler = async(event) => {
     const data = JSON.parse(event.body);
 
     // TO DO - add in proper error handling all the way through
-    if (!data.token || !data.name || !data.email || !data.plan || !data.quantity || !data.billing_cycle_anchor) {
+    if (!data.token || !data.name || !data.email || !data.plan || !data.quantity) {
       return {
         statusCode: 400,
         body: JSON.stringify({
@@ -40,7 +40,6 @@ exports.handler = async(event) => {
       const subscription = await stripe.subscriptions.create({
         customer: customer.id,
         items: [{plan, quantity}],
-        billing_cycle_anchor,
         collection_method: 'charge_automatically',
         expand: ['latest_invoice.payment_intent'],
       })
@@ -62,6 +61,7 @@ exports.handler = async(event) => {
       }
 
     } catch(error) {
+      console.log(error);
       return {
         statusCode: 400,
         body: JSON.stringify({
