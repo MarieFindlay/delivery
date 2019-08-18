@@ -1,8 +1,3 @@
-export const REPEAT_SCHEDULES = {
-    CUSTOM: 'CUSTOM',
-    SAME_DAY: 'SAME_DAY',
-}
-
 export const ITEMS = [
     {
         ID: 1,
@@ -110,44 +105,4 @@ export const TEST_PLANS = [
         NAME: PLAN_NAMES.HOUSEHOLD_TOILETRIES_DISHWASHER,
         INCLUDED_ITEM_IDS: [1, 2, 3, 4, 5, 6]
     },
-]
-
-//Pricing tiers per person, when there are x number of people
-export const TEST_PLAN_PRICE_TIERS = [
-    {
-        PLAN_ID: 1,
-        1: 1600,
-        2: 1600,
-        3: 1500,
-        4: 1500,
-        5: 1400,
-        6: 1400,
-    },
-    {
-        PLAN_ID: 2,
-        1: 1700,
-        2: 1700,
-        3: 1600,
-        4: 1600,
-        5: 1500,
-        6: 1500,
-    },
-    {
-        PLAN_ID: 3,
-        1: 2000,
-        2: 2000,
-        3: 1900,
-        4: 1900,
-        5: 1800,
-        6: 1800,
-    },
-    {
-        PLAN_ID: 4,
-        1: 2100,
-        2: 2100,
-        3: 2000,
-        4: 2000,
-        5: 1900,
-        6: 1900,
-    }
 ]

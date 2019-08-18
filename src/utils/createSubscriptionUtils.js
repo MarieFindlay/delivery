@@ -1,4 +1,4 @@
-import { getSelectedPlan } from './utils';
+import { getSelectedPlan } from './pricePlanUtils';
 
 export const getSubscriptionData = (state) => {
     const {

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { nextPage, prevPage } from './../../../actions/actions';
-import { getSubscriptionData, getSubscriptionMetaData } from './../../../utils/paymentUtils';
+import { getSubscriptionData, getSubscriptionMetaData } from './../../../utils/createSubscriptionUtils';
 import PaymentDetails from './PaymentDetails';
 
 const mapStateToProps = state => {

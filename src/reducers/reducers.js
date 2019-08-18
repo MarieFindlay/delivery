@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
 import { actionTypes } from "../actions/actions";
-import { REPEAT_SCHEDULES } from './../data/itemData';
+import { REPEAT_SCHEDULES } from '../consts/scheduleConsts';
 
 const initialState = {
   currentPage: 0,

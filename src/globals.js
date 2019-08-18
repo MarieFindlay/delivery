@@ -46,5 +46,8 @@ export default {
     },
     API_KEYS: {
         STRIPE: "pk_test_uGLYOYBuOKBYFlqIcY7RFcc600aGtHolkS",
+    },
+    API_URLS: {
+        CREATE_SUBSCRIPTION: '/.netlify/functions/createSubscription',
     }
 }

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { nextPage, prevPage } from './../../../actions/actions';
-import { getRecommendedBox } from './../../../utils/utils';
+import { getRecommendedBox } from './../../../utils/pricePlanUtils';
 import RecommendedBox from './RecommendedBox';
 
 const mapStateToProps = state => {

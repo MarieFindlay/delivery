@@ -4,7 +4,7 @@ import BackNextButton from './../../commons/BackNextButton';
 import { OrderDetails } from './Components/OrderDetails/OrderDetails';
 import { SPageTitle } from './../../commons/StyledComponents';
 import { SBoxPageContainer, SOrderSummary, SOrderHeadline, SOrderPrice, SOrderButton, SSubText } from './styled';
-import { getRecommendedBox } from './../../../utils/utils';
+import { getRecommendedBox } from './../../../utils/pricePlanUtils';
 
 export default class extends React.Component {
     constructor(props) {
