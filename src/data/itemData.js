@@ -88,25 +88,25 @@ export const PLAN_NAMES = {
 export const TEST_PLANS = [
     {
         ID: 1,
-        STRIPE_PLAN_ID: 'prod_FdiqCG6NSelEvQ',
+        STRIPE_PLAN_ID: 'plan_FdisT5gj3zCZBs',
         NAME: PLAN_NAMES.HOUSEHOLD,
         INCLUDED_ITEM_IDS: [1, 2, 4, 5],
     },
     {
         ID: 2,
-        STRIPE_PLAN_ID: 'prod_Fdiu8OoDI7n5hz',
+        STRIPE_PLAN_ID: 'plan_Fdiv5cusSdkUhc',
         NAME: PLAN_NAMES.HOUSEHOLD_DISHWASHER,
         INCLUDED_ITEM_IDS: [1, 2, 3, 4, 5],
     },
     {
         ID: 3,
-        STRIPE_PLAN_ID: 'prod_FdiwQvAQ7VABY9',
+        STRIPE_PLAN_ID: 'plan_FdiyxoEN5fvesx',
         NAME: PLAN_NAMES.HOUSEHOLD_TOILETRIES,
         INCLUDED_ITEM_IDS: [1, 2, 4, 5, 6]
     },
     {
         ID: 4,
-        STRIPE_PLAN_ID: 'prod_FdizRgSqPqsu1y',
+        STRIPE_PLAN_ID: 'plan_Fdj00BsMWzwe1S',
         NAME: PLAN_NAMES.HOUSEHOLD_TOILETRIES_DISHWASHER,
         INCLUDED_ITEM_IDS: [1, 2, 3, 4, 5, 6]
     },
