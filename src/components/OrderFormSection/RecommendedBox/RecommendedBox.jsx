@@ -18,7 +18,7 @@ export default class extends React.Component {
     render(){
         console.log(this.props.recommendedBox);
         const { recommendedBox, numberOfPeople } = this.props;
-        const { price, items, plan} = recommendedBox;
+        const { price, items } = recommendedBox;
         return (
             <SBoxPageContainer color={GLOBALS.COLORS.BEIGE}>
                 <SPageTitle>Your first juggle box!</SPageTitle>

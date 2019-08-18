@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { SContainer } from './../../commons/StyledComponents';
-import GLOBALS from './../../../globals';
 import { deviceWidth } from './../../commons/devices';
 
 export const SHeroContainer = styled(SContainer)`
