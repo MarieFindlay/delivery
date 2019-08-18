@@ -1,7 +1,8 @@
-import { PLAN_NAMES, TEST_PLANS, ITEMS, TEST_PLAN_PRICE_TIERS } from '../data/itemData';
+import { useState } from 'react';
+import { PLAN_NAMES, TEST_PLANS, ITEMS } from '../data/itemData';
+import axios from 'axios';
 //To switch to live plans when launching
 const PLANS = TEST_PLANS;
-const PLAN_PRICE_TIERS = TEST_PLAN_PRICE_TIERS;
 const { 
     HOUSEHOLD_TOILETRIES_DISHWASHER,
     HOUSEHOLD_TOILETRIES,
@@ -10,10 +11,8 @@ const {
 } = PLAN_NAMES;
 
 export const humanizeNumber = (number) => {
-
     if(number % 100 >= 11 && number % 100 <= 13)
         return number + "th";
-    
     switch(number % 10) {
         case 1: return number + "st";
         case 2: return number + "nd";
@@ -71,15 +70,62 @@ export const getItemsWithQuantities = (plan, numberOfPeople) => {
     return itemsWithQuantities;
 }
 
-export const getPrice = (plan, numberOfPeople) => {
-    const priceTiersForPlan = PLAN_PRICE_TIERS.find(priceTiersSet => priceTiersSet.PLAN_ID === plan.ID);
-    return priceTiersForPlan[numberOfPeople];
-}
-
-export const getRecommendedBox = ({ includeToiletries, hasDishwasher, numberOfPeople }) => {
+export const getRecommendedBox = async (includeToiletries, hasDishwasher, numberOfPeople) => {
     const plan = getSelectedPlan(includeToiletries, hasDishwasher);
     const items = getItemsWithQuantities(plan, numberOfPeople);
-    const price = getPrice(plan, numberOfPeople);
+    const price = await getPriceFromStripe(plan, numberOfPeople);
     return { plan, items, price };
 }
+
+export const getPriceFromStripe = async(plan, numberOfPeople) => {
+    const stripePlan = await fetchStripePlan(plan);
+    if (!stripePlan.tiers) return null;
+    const { tiers: tiersWithMissingLimit } = stripePlan;
+    const tiers = attachLimitsToTiers(tiersWithMissingLimit);
+    let price = 0;
+    for (let person = 0; person <= numberOfPeople; person++) {
+        for (const tier of tiers) {
+            if (person >= tier.from && person <= tier.up_to) {
+                price = price + tier.unit_amount
+            }
+            continue;
+        }
+    }
+    return price;
+}
+
+export const fetchStripePlan = async (plan) => {
+    try {
+        const response = await axios.get('/.netlify/functions/fetchPlan', {
+            params: {
+              planId: plan.STRIPE_PLAN_ID,
+            }
+          })
+        if (response.data.plan) {
+          return response.data.plan;
+        } else {
+            throw new Error(response.error);
+        }
+    } catch (error) {
+        console.log('BAD', error);
+        return null;
+    }
+};
+
+export const attachLimitsToTiers = tiers => {
+    const tiersWithLowerLimits = [];
+    let previousTierUpperLimit = 0;
+    for (const tier of tiers) {
+        const upperLimit = !!tier.up_to ? tier.up_to : Infinity;
+        const newTier = {
+            ...tier,
+            from: previousTierUpperLimit + 1,
+            up_to: upperLimit
+        }
+        previousTierUpperLimit = tier.up_to;
+        tiersWithLowerLimits.push(newTier);
+    }
+    return tiersWithLowerLimits;
+}
+
 

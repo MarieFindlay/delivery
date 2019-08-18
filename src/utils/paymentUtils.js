@@ -1,7 +1,6 @@
 import { getSelectedPlan } from './utils';
 
 export const getSubscriptionData = (state) => {
-    console.log(state);
     const {
         customerName,
         emailAddress,

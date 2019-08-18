@@ -5,7 +5,8 @@ import RecommendedBox from './RecommendedBox';
 
 const mapStateToProps = state => {
     return {
-        recommendedBox: getRecommendedBox(state),
+        hasDishwasher: state.hasDishwasher,
+        includeToiletries: state.includeToiletries,
         numberOfPeople: state.numberOfPeople,
     };
 };
