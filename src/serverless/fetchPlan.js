@@ -2,7 +2,6 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async(event) => {
-    // // Only allow POST
     if (event.httpMethod !== 'GET') {
       return { statusCode: 405, body: 'Method Not Allowed' };
     }
