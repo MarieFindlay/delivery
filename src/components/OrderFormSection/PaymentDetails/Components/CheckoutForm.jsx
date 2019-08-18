@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
 
+const CREATE_SUBSCRIPTION_URL = '/.netlify/functions/createSubscription';
+
 const STATUS_TYPES = {
   INCOMPLETE: 'INCOMPLETE',
   SUBMITTING: 'SUBMITTING',
@@ -19,7 +21,7 @@ const ERROR_MESSAGES = {
   [ERROR_TYPES.FORM_ERROR]: `Something went wrong submitting your card details. ${CUSTOMER_ERROR_ACTION}`
 }
 
-function CheckoutForm({ stripe, handlePaymentComplete }) {
+function CheckoutForm({ stripe, handlePaymentComplete, subscriptionData, subscriptionMetaData }) {
   const [status, setStatus] = useState(STATUS_TYPES.INCOMPLETE);
   const [error, setError] = useState(null);
 
@@ -29,15 +31,13 @@ function CheckoutForm({ stripe, handlePaymentComplete }) {
     setStatus(STATUS_TYPES.SUBMITTING);
     
     try {
-      let { token } = await stripe.createToken({ name: 'Name' });
+      const { token } = await stripe.createToken({ name: 'Name' });
 
-      let response = await fetch('/.netlify/functions/createSubscription', {
+      const response = await fetch(CREATE_SUBSCRIPTION_URL, {
         method: 'POST',
         body: JSON.stringify({
-          name:'Marie Findlay',
-          email:'mariealicefindlay@gmail.com',
-          plan:'plan_FbxLVfmE69x1Pk',
-          quantity:1,
+          ...subscriptionData,
+          metadata: subscriptionMetaData,
           token: token.id,
         }),
       });
@@ -47,7 +47,7 @@ function CheckoutForm({ stripe, handlePaymentComplete }) {
         handlePaymentComplete();
       } else {
         setStatus(STATUS_TYPES.INCOMPLETE);
-        setError(ERROR_TYPES.STRIPE_ERROR);
+        setError(response.body.message);
       }
     } catch (err) {
       setStatus(STATUS_TYPES.INCOMPLETE);

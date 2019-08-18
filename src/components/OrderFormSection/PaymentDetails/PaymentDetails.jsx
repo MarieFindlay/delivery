@@ -20,7 +20,11 @@ export default class extends React.Component {
                 <SPageTitle>Last thing! How would you like to pay?</SPageTitle>
                 <StripeProvider apiKey={GLOBALS.API_KEYS.STRIPE}>
                     <Elements>
-                        <CheckoutForm handlePaymentComplete={this.handlePaymentComplete}/>
+                        <CheckoutForm 
+                            handlePaymentComplete={this.handlePaymentComplete}
+                            subscriptionData={this.props.subscriptionData}
+                            subscriptionMetaData={this.props.subscriptionMetaData}
+                        />
                     </Elements>
                 </StripeProvider>
             </SPageContainer>

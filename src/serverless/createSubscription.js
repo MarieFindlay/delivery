@@ -10,16 +10,16 @@ exports.handler = async(event) => {
     const data = JSON.parse(event.body);
 
     // TO DO - add in proper error handling all the way through
-    if (!data.token || !data.name || !data.email || !data.plan || !data.quantity) {
+    if (!data.token || !data.name || !data.email || !data.plan || !data.quantity || !data.metadata) {
       return {
-        statusCode: 400,
+        statusCode: 401,
         body: JSON.stringify({
           message: 'Some required fields were not supplied.',
         })
       }
     }
 
-    const { name, email, token, plan, quantity, billing_cycle_anchor } = data;
+    const { name, email, token, plan, quantity, metadata} = data;
 
     try {
       const customer = await stripe.customers.create({
@@ -30,7 +30,7 @@ exports.handler = async(event) => {
 
       if (!customer.id) {
         return { 
-          statusCode: 400,
+          statusCode: 401,
           body: JSON.stringify({ 
             message: `Sorry, we couldn't create you as a customer with those card details.`
           })
@@ -41,13 +41,14 @@ exports.handler = async(event) => {
         customer: customer.id,
         items: [{plan, quantity}],
         collection_method: 'charge_automatically',
+        metadata,
         expand: ['latest_invoice.payment_intent'],
       })
 
       if (!subscription.id) {
         return { 
-          statusCode: 400,
-          body: JSON.stringify({ 
+          statusCode: 401,
+          body: JSON.stringify({
             message: `Sorry, we couldn't create your subscription right now. We haven't taken payment.`
           })
         }
