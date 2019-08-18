@@ -44,7 +44,7 @@ export default class extends React.Component {
                         <SPageTitle>Your first juggle box!</SPageTitle>
                         <SOrderSummary>
                             <SOrderHeadline>Monthly for {numberOfPeople}</SOrderHeadline>
-                            <SOrderPrice>£{price / 100 / 4}pp</SOrderPrice>
+                            <SOrderPrice>£{Math.round(price / numberOfPeople) / 100}pp</SOrderPrice>
                         </SOrderSummary>
                         <SOrderButton onClick={this.handleClickOrder}>Order now</SOrderButton>
                         <OrderDetails items={items}/>
