@@ -3,11 +3,11 @@ import { SButton } from "./Button";
 import styled from 'styled-components';
 import GLOBALS from './../../globals';
 
-const BackNextButton = ({ onClickNext, onClickBack }) => {
+const BackNextButton = ({ onClickNext, onClickBack, nextButtonDisabled }) => {
     return (
         <SBackNextButton>
             <SNextButton onClick={onClickBack}>back</SNextButton>
-            <SNextButton onClick={onClickNext}>next</SNextButton>
+            <SNextButton disabled={nextButtonDisabled} onClick={onClickNext}>next</SNextButton>
         </SBackNextButton>
     )
 }

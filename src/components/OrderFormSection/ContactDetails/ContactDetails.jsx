@@ -26,6 +26,8 @@ export default class extends React.Component {
     }
 
     handleClickNext = () => {
+        const { emailAddress, phoneNumber } = this.state;
+        if (!emailAddress || !phoneNumber) return;
         this.props.updateContactDetails(this.state.emailAddress, this.state.phoneNumber)
         this.props.goToNextPage();
     }

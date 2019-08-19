@@ -50,6 +50,7 @@ export default class extends React.Component {
     }
 
     handleClickNext = () => {
+        if (!this.state.postcode || !this.state.selectedAddress) return;
         this.props.updateAddress(this.state.postcode, this.state.selectedAddress);
         this.props.goToNextPage();
     }

@@ -47,6 +47,8 @@ export default class extends React.Component {
 
     handleClickNext = () => {
         const { selectedDay, selectedRepeatSchedule, customScheduleDetails} = this.state;
+        if (!selectedDay) return;
+        if (selectedRepeatSchedule === REPEAT_SCHEDULES.CUSTOM && !customScheduleDetails) return;
         this.props.updateSchedule(selectedDay, selectedRepeatSchedule, customScheduleDetails);
         this.props.goToNextPage();
     }
@@ -88,7 +90,7 @@ export default class extends React.Component {
                         <SText>You can change your delivery dates at any time.</SText>
                     </SRepeatScheduleContainer>
                 }
-                <BackNextButton onClickNext={this.handleClickNext} onClickBack={this.props.goToPrevPage}/>
+                <BackNextButton nextButtonDisabled={!this.state.selectedDay} onClickNext={this.handleClickNext} onClickBack={this.props.goToPrevPage}/>
             </SDatesPageContainer>
         )
     }
