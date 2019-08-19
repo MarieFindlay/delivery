@@ -22,6 +22,7 @@ export default class extends React.Component {
                     <Elements>
                         <CheckoutForm 
                             handlePaymentComplete={this.handlePaymentComplete}
+                            goToPrevPage={this.props.goToPrevPage}
                             subscriptionData={this.props.subscriptionData}
                             subscriptionMetaData={this.props.subscriptionMetaData}
                         />

@@ -3,7 +3,7 @@ import { CardElement, injectStripe } from 'react-stripe-elements';
 import { STATUS_TYPES, ERROR_TYPES, ERROR_MESSAGES } from '../../../../consts/checkoutConsts';
 import GLOBALS from '../../../../globals';
 
-const CheckoutForm = ({ stripe, handlePaymentComplete, subscriptionData, subscriptionMetaData }) => {
+const CheckoutForm = ({ stripe, handlePaymentComplete, goToPrevPage, subscriptionData, subscriptionMetaData }) => {
   const [status, setStatus] = useState(STATUS_TYPES.INCOMPLETE);
   const [error, setError] = useState(null);
 
@@ -41,7 +41,7 @@ const CheckoutForm = ({ stripe, handlePaymentComplete, subscriptionData, subscri
     <form onSubmit={submit}>
       <CardElement />
       <div>
-        <button>Back</button>
+        <button onClick={goToPrevPage}>Back</button>
         <button
           type="submit"
           disabled={status === STATUS_TYPES.SUBMITTING}
