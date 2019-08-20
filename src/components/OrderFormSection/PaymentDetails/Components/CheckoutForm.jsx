@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
 import { STATUS_TYPES, ERROR_TYPES, ERROR_MESSAGES } from '../../../../consts/checkoutConsts';
 import GLOBALS from '../../../../globals';
+import { SPayButton, SButtonContainer } from './styled';
 
 const CheckoutForm = ({ stripe, handlePaymentComplete, goToPrevPage, subscriptionData, subscriptionMetaData }) => {
   const [status, setStatus] = useState(STATUS_TYPES.INCOMPLETE);
@@ -40,15 +41,15 @@ const CheckoutForm = ({ stripe, handlePaymentComplete, goToPrevPage, subscriptio
   return (
     <form onSubmit={submit}>
       <CardElement />
-      <div>
-        <button onClick={goToPrevPage}>Back</button>
-        <button
+      <SButtonContainer>
+        <SPayButton onClick={goToPrevPage}>back</SPayButton>
+        <SPayButton
           type="submit"
           disabled={status === STATUS_TYPES.SUBMITTING}
         >
-          {status === STATUS_TYPES.SUBMITTING ? 'Submitting' : 'Place Order'}
-        </button>
-      </div>
+          {status === STATUS_TYPES.SUBMITTING ? 'submitting' : 'place order'}
+        </SPayButton>
+      </SButtonContainer>
       {!!error && (
         <div>{ERROR_MESSAGES[error]}</div>
       )}
