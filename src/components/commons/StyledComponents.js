@@ -43,6 +43,8 @@ export const SInnerContents = styled.div`
 
 // text components
 export const SText = styled.p`
+    @import url('https://fonts.googleapis.com/css?family=Actor&display=swap');
+    font-family: 'Actor', sans-serif;
     font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_SMALL}
     color: ${GLOBALS.COLORS.CRIMSON}
     text-align: center;
@@ -52,7 +54,7 @@ export const SText = styled.p`
 `
 
 export const SMainTitle = styled(SText)`
-    font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_BIGGEST};
+    font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_BIGGEST};    
     text-align: left;
     line-height: 0;
     margin-block-start: 0.5em;

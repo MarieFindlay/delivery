@@ -9,6 +9,8 @@ export const Button = ({ text, handleClick, color, size, selected }) => {
 }
 
 export const SButton = styled.div`
+    @import url('https://fonts.googleapis.com/css?family=Actor&display=swap');
+    font-family: 'Actor', sans-serif;
     background-color: ${props => props.color  ? props.color : GLOBALS.COLORS.CREAM};
     font-size: ${props => props.size && props.size === 'large' ? GLOBALS.DIMENSIONS.FONT_SIZE_BIG : GLOBALS.DIMENSIONS.FONT_SIZE_MEDIUM};
     border-radius: ${GLOBALS.DIMENSIONS.BORDER_RADIUS};
