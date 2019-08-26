@@ -60,7 +60,7 @@ export const SButtonContainer = styled.div`
         top: 55%;
     }
 `
-export const SHeroButton = styled.button`
+export const SHeroButton = styled.a`
     background-color: ${GLOBALS.COLORS.BEIGE};
     color: ${GLOBALS.COLORS.CRIMSON};
     font-family: 'Actor';
@@ -68,4 +68,11 @@ export const SHeroButton = styled.button`
     border: none;
     box-shadow: ${GLOBALS.EFFECTS.SHADOW};
     padding: ${GLOBALS.DIMENSIONS.MARGIN / 2}px ${GLOBALS.DIMENSIONS.MARGIN}px;
+    text-decoration: none;
+    :focus{
+        outline: none;
+    }
+    :hover{
+        cursor:pointer;
+    }
 `

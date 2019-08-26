@@ -1,6 +1,6 @@
 import React from "react";
 import GLOBALS from './../../../globals';
-import { SMainTitle, SSubTitle } from './../../commons/StyledComponents';
+import { SMainTitle, SSubTitle, callToActionDestination } from './../../commons/StyledComponents';
 import { Button } from './../../commons/Button';
 import { SHeroContainer, SHeroImage, SButtonContainer, SSubTitleContainer, SHeroImageContainer, SHeroButton } from './styled';
 
@@ -16,7 +16,7 @@ const Hero = () => {
                 <SHeroImage src={GLOBALS.IMAGES.WOMAN_HERO}/>
             </SHeroImageContainer>
             <SButtonContainer>
-                <SHeroButton onClick={() => console.log('click')}>Build my box</SHeroButton>
+                <SHeroButton href={'#' + callToActionDestination} onClick={() => console.log('click')}>Build my box</SHeroButton>
             </SButtonContainer>
         </SHeroContainer>
     )

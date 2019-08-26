@@ -2,7 +2,7 @@ import React from "react";
 import GLOBALS from './../../../globals';
 import AmountPicker from './Components/AmountPicker/index';
 import NextButton from './../../commons/NextButton';
-import { SPageTitle, SPageContainer, SText, SPageContents, SInnerContents } from './../../commons/StyledComponents';
+import { SPageTitle, SPageContainer, SText, SPageContents, SInnerContents, callToActionDestination } from './../../commons/StyledComponents';
 import { SGroupImage } from './styled';
 
 const MAX_NUMBER_OF_PEOPLE = 4;
@@ -38,7 +38,7 @@ export default class extends React.Component {
 
     render(){
         return (
-            <SPageContainer color={GLOBALS.COLORS.BEIGE}>
+            <SPageContainer id={callToActionDestination} color={GLOBALS.COLORS.BEIGE}>
                 <SPageContents>
                     <SPageTitle>For how many people?</SPageTitle>
                     <SInnerContents>
