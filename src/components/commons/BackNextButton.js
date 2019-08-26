@@ -16,7 +16,7 @@ export default BackNextButton;
 
 const SBackNextButton = styled.div`
     display: flex;
-    width: 90%;
+    width: 100%;
     justify-self: center;
     align-self: center;
     justify-content: space-between;

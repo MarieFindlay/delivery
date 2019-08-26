@@ -6,7 +6,7 @@ import { deviceWidth } from './../commons/devices';
 export const SContainer = styled.div`
     box-sizing: border-box;
     width: 100%;
-    padding: ${GLOBALS.DIMENSIONS.MARGIN}px;
+    padding: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 4}px;
     display: flex;
     flex-direction: column;
     background-color: ${props => props.color && props.color};
@@ -58,6 +58,7 @@ export const SMainTitle = styled(SText)`
     margin-block-start: 0.5em;
     margin-block-end: 0.5em;
     margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN}px;
+    color: ${GLOBALS.COLORS.DARK_CRIMSON};
     @media ${deviceWidth.mobileS} {
         font-size: 40px;
     }
@@ -110,6 +111,6 @@ export const SInput = styled.input`
     padding: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 2}px 0;
     box-shadow: ${GLOBALS.EFFECTS.SHADOW};
     &:focus{
-        border: none;
+        outline: none;
     }
 `

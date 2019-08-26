@@ -1,6 +1,7 @@
 import React from "react";
 import GLOBALS from './../../../globals';
-import { SPageContainer, SPageTitle, SText } from './../../commons/StyledComponents';
+import { SPageContainer, SText} from './../../commons/StyledComponents';
+import { SOrderCompletePageContents, SOrderCompleteTitle } from './styled';
 
 export default class extends React.Component {
     constructor(props) {
@@ -15,8 +16,10 @@ export default class extends React.Component {
     render(){
         return (
             <SPageContainer color={GLOBALS.COLORS.BEIGE}>
-                <SPageTitle>Order complete!</SPageTitle>
-                <SText>We'll email you shortly to confirm your order details.</SText>
+                <SOrderCompletePageContents>
+                    <SOrderCompleteTitle>Order complete!</SOrderCompleteTitle>
+                    <SText>We'll email you shortly to confirm your order details.</SText>
+                </SOrderCompletePageContents>
             </SPageContainer>
         )
     }

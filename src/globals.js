@@ -35,7 +35,8 @@ export default {
     },
     COLORS: {
         PURPLE: '#7F4EF5',
-        CRIMSON: '#310404',
+        DARK_CRIMSON: '#310404',
+        CRIMSON: '#674343',
         MUTED_CRIMSON: '#674343',
         CREAM: 'white',
         BEIGE: '#F9D194',

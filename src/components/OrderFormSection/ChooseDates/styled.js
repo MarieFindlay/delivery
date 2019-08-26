@@ -36,4 +36,5 @@ export const dayPickerInputStyles = {
     textAlign: 'center',
     fontFamily: 'Actor',
     fontSize: GLOBALS.DIMENSIONS.FONT_SIZE_MEDIUM,
+    color: GLOBALS.COLORS.CRIMSON,
 }

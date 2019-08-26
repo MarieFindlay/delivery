@@ -9,9 +9,11 @@ export const SHowItWorksContainer = styled(SContainer)`
 export const SParagraph = styled(SText)`
     line-height: 1.5;
     text-align: left;
+    margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 2}px;
     @media ${deviceWidth.tablet}{
         font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_MEDIUM};
         text-align: center;
+        margin-bottom: 0;
     }
 `
 

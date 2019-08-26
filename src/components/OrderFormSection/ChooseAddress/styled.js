@@ -14,6 +14,9 @@ export const SSelect = styled.select`
     padding: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 2}px ${GLOBALS.DIMENSIONS.MARGIN / 5}px;
     border-radius: ${GLOBALS.DIMENSIONS.BORDER_RADIUS};
     box-shadow: ${GLOBALS.EFFECTS.SHADOW};
+    &:focus{
+        outline: none;
+    }
 `
 
 export const SForm = styled.form`
