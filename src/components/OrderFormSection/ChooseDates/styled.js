@@ -35,6 +35,11 @@ export const dayPickerInputStyles = {
     width: '100%',
     textAlign: 'center',
     fontFamily: 'Actor',
+    boxSizing: 'border-box',
     fontSize: GLOBALS.DIMENSIONS.FONT_SIZE_MEDIUM,
     color: GLOBALS.COLORS.CRIMSON,
+    padding: `${GLOBALS.DIMENSIONS.MARGIN / 5 * 2}px`,
+    border: 'none',
+    boxShadow: `${GLOBALS.EFFECTS.SHADOW}`,
+    outline: 'none'
 }

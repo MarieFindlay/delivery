@@ -63,6 +63,7 @@ export default class extends React.Component {
                     <SInnerContents>
                         <SDayPickerContainer>
                             <DayPickerInput
+                                style={{ width: '100%' }}
                                 selectedDays={this.state.selectedDay}
                                 onDayChange={this.handleDayChange}
                                 inputProps={{ style: dayPickerInputStyles }}

@@ -110,6 +110,7 @@ export const SInput = styled.input`
     border:none;
     padding: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 2}px 0;
     box-shadow: ${GLOBALS.EFFECTS.SHADOW};
+    color: ${GLOBALS.COLORS.CRIMSON};
     &:focus{
         outline: none;
     }
