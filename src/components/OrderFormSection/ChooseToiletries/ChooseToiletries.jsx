@@ -2,7 +2,7 @@ import React from "react";
 import GLOBALS from './../../../globals';
 import CardButton from './../../commons/CardButton';
 import BackNextButton from './../../commons/BackNextButton';
-import { SPageTitle, SPageContainer } from './../../commons/StyledComponents';
+import { SPageTitle, SPageContainer, SPageContents, SInnerContents } from './../../commons/StyledComponents';
 
 
 export default class extends React.Component {
@@ -27,23 +27,27 @@ export default class extends React.Component {
     render(){
         return (
             <SPageContainer color={GLOBALS.COLORS.BEIGE}>
-                <SPageTitle>Do you need toiletries?</SPageTitle>
-                <CardButton
-                    title="Yes"
-                    subtitle="add toiletries for minimal fuss"
-                    selected={this.state.includeToiletries} 
-                    onClick={() => this.toggleIncludeToiletries(true)}
-                />
-                <CardButton 
-                    title="No"
-                    subtitle="stick to household essentials"
-                    selected={!this.state.includeToiletries}
-                    onClick={() => this.toggleIncludeToiletries(false)}
-                />
-                <BackNextButton 
-                    onClickBack={this.props.goToPrevPage}
-                    onClickNext={this.handleClickNext}
-                />
+                <SPageContents>
+                    <SPageTitle>Do you need toiletries?</SPageTitle>
+                        <SInnerContents>
+                            <CardButton
+                                title="Yes"
+                                subtitle="add toiletries for minimal fuss"
+                                selected={this.state.includeToiletries} 
+                                onClick={() => this.toggleIncludeToiletries(true)}
+                            />
+                            <CardButton 
+                                title="No"
+                                subtitle="stick to household essentials"
+                                selected={!this.state.includeToiletries}
+                                onClick={() => this.toggleIncludeToiletries(false)}
+                            />
+                        </SInnerContents>
+                    <BackNextButton 
+                        onClickBack={this.props.goToPrevPage}
+                        onClickNext={this.handleClickNext}
+                    />
+                </SPageContents>
             </SPageContainer>
         )
     }

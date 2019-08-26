@@ -9,8 +9,8 @@ const width = {
   }
 
   export const deviceWidth = {
-    mobileS: `(min-width: ${width.mobileS})`,
-    mobileM: `(min-width: ${width.mobileM})`,
+    mobileS: `(max-width: ${width.mobileS})`,
+    mobileM: `(max-width: ${width.mobileM})`,
     mobileL: `(min-width: ${width.mobileL})`,
     tablet: `(min-width: ${width.tablet})`,
     laptop: `(min-width: ${width.laptop})`,

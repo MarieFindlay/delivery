@@ -2,7 +2,7 @@ import React from "react";
 import GLOBALS from './../../../globals';
 import { SMainTitle, SSubTitle } from './../../commons/StyledComponents';
 import { Button } from './../../commons/Button';
-import { SHeroContainer, SHeroImage, SButtonContainer, SSubTitleContainer, SHeroImageContainer } from './styled';
+import { SHeroContainer, SHeroImage, SButtonContainer, SSubTitleContainer, SHeroImageContainer, SHeroButton } from './styled';
 
 const Hero = () => {
     return (
@@ -16,7 +16,7 @@ const Hero = () => {
                 <SHeroImage src={GLOBALS.IMAGES.WOMAN_HERO}/>
             </SHeroImageContainer>
             <SButtonContainer>
-                <Button handleClick={() => console.log('click')} size={'large'} color={GLOBALS.COLORS.BEIGE} text={'Build my box'}/>
+                <SHeroButton onClick={() => console.log('click')}>Build my box</SHeroButton>
             </SButtonContainer>
         </SHeroContainer>
     )

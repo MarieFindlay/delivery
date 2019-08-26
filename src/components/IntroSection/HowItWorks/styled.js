@@ -4,34 +4,33 @@ import { deviceWidth } from './../../commons/devices';
 import GLOBALS from './../../../globals';
 
 export const SHowItWorksContainer = styled(SContainer)`
-    @media ${deviceWidth.tablet}{
-        padding: 6vw;
-    }
 `
 
 export const SParagraph = styled(SText)`
-    margin-top: 0.5vh;
     line-height: 1.5;
     text-align: left;
+    margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 2}px;
     @media ${deviceWidth.tablet}{
         font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_MEDIUM};
         text-align: center;
+        margin-bottom: 0;
     }
 `
 
 export const SHowItWorksTitle = styled(SPageTitle)`
-    margin-top: 8vh;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-top: ${GLOBALS.DIMENSIONS.MARGIN}px;
+    margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 2}px;
     @media ${deviceWidth.tablet}{
-        margin-top: 0;
+        margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 6}px;
     }
 `
 
 export const SHowItWorksStepsContainer = styled.div`
-    margin-top: 2vh;
     @media ${deviceWidth.tablet}{
         display: flex;
         justify-content: space-between;
-        margin-top: 3vh;
     }
 `
 
@@ -47,7 +46,6 @@ export const SStepIcon = styled.img`
         justify-self: center;
         width: 100%;
         object-fit: contain;
-        margin-bottom: 3vh;
         display: flex;
     }
     display: none;

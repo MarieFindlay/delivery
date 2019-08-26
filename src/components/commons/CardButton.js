@@ -21,28 +21,24 @@ const unselectedBorderStyle = 'transparent solid 2px';
 const SCardButton = styled(SButton)`
     width: 100%;
     border: ${props => props.selected ? selectedBorderStyle : unselectedBorderStyle};
-    margin-top: ${GLOBALS.DIMENSIONS.RESP_MARGIN};
     box-shadow: ${GLOBALS.EFFECTS.SHADOW};
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    padding-top: ${GLOBALS.DIMENSIONS.RESP_MARGIN};
-    padding-bottom: ${GLOBALS.DIMENSIONS.RESP_MARGIN};
-    padding-right: ${GLOBALS.DIMENSIONS.RESP_MARGIN / 2};
-    padding-left: ${GLOBALS.DIMENSIONS.RESP_MARGIN / 2};
+    padding: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 4}px 0;
+    &:not(:last-child){
+        margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 2}px;
+    }
 `
 
 const SCardTitle = styled(SText)`
-    margin-top: 0;
-    margin-bottom: 1vh;
     line-height: 1;
     font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_BIG};
+    margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 5}px;
 
 `
 
 const SCardSubtitle = styled(SText)`
-    margin-top: 0;
-    margin-bottom: 0;
     line-height: 1;
     font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_TINY};
 `

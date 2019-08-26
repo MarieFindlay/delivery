@@ -35,7 +35,8 @@ export default {
     },
     COLORS: {
         PURPLE: '#7F4EF5',
-        CRIMSON: '#310404',
+        DARK_CRIMSON: '#310404',
+        CRIMSON: '#674343',
         MUTED_CRIMSON: '#674343',
         CREAM: 'white',
         BEIGE: '#F9D194',
@@ -43,6 +44,7 @@ export default {
     },
     EFFECTS: {
         SHADOW: '2px 2px 4px rgba(0, 0, 0, 0.25)',
+        INSET_SHADOW: 'inset 2px 2px 4px rgba(0, 0, 0, 0.25)',
     },
     API_KEYS: {
         STRIPE: "pk_test_uGLYOYBuOKBYFlqIcY7RFcc600aGtHolkS",

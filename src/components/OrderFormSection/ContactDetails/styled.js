@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import GLOBALS from './../../../globals';
 import { SInput } from './../../commons/StyledComponents';
 
-export const SPhoneNumber = styled(SInput)`
-    margin-top: 2vh;
+export const SEmailInput = styled(SInput)`
+    margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 5}px;
 `

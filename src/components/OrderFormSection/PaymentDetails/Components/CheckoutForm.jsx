@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
 import { STATUS_TYPES, ERROR_TYPES, ERROR_MESSAGES } from '../../../../consts/checkoutConsts';
 import GLOBALS from '../../../../globals';
+import { SPayButton, SButtonContainer, pageContentStyles, SForm, cardElementClass, SErrorText } from './styled';
+import { SPageTitle, SText } from './../../../commons/StyledComponents';
+import styled from 'styled-components'
 
-const CheckoutForm = ({ stripe, handlePaymentComplete, subscriptionData, subscriptionMetaData }) => {
+const CheckoutForm = ({ stripe, handlePaymentComplete, goToPrevPage, subscriptionData, subscriptionMetaData }) => {
   const [status, setStatus] = useState(STATUS_TYPES.INCOMPLETE);
   const [error, setError] = useState(null);
 
@@ -38,21 +41,24 @@ const CheckoutForm = ({ stripe, handlePaymentComplete, subscriptionData, subscri
   };
 
   return (
-    <form onSubmit={submit}>
-      <CardElement />
+    <SForm style={pageContentStyles} onSubmit={submit}>
+      <SPageTitle>Last thing! How would you like to pay?</SPageTitle>
       <div>
-        <button>Back</button>
-        <button
+        <CardElement className={cardElementClass}/>
+        {!!error && (
+          <SErrorText>{ERROR_MESSAGES[error]}</SErrorText>
+        )}
+      </div>
+      <SButtonContainer>
+        <SPayButton onClick={goToPrevPage}>back</SPayButton>
+        <SPayButton
           type="submit"
           disabled={status === STATUS_TYPES.SUBMITTING}
         >
-          {status === STATUS_TYPES.SUBMITTING ? 'Submitting' : 'Place Order'}
-        </button>
-      </div>
-      {!!error && (
-        <div>{ERROR_MESSAGES[error]}</div>
-      )}
-    </form>
+          {status === STATUS_TYPES.SUBMITTING ? 'submitting' : 'place order'}
+        </SPayButton>
+      </SButtonContainer>
+    </SForm>
   );
 }
 
