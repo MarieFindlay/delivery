@@ -44,6 +44,7 @@ export default {
     },
     EFFECTS: {
         SHADOW: '2px 2px 4px rgba(0, 0, 0, 0.25)',
+        INSET_SHADOW: 'inset 2px 2px 4px rgba(0, 0, 0, 0.25)',
     },
     API_KEYS: {
         STRIPE: "pk_test_uGLYOYBuOKBYFlqIcY7RFcc600aGtHolkS",

@@ -8,7 +8,7 @@ export const SOrderDetails = styled.div`
     box-sizing: border-box;
     width: 100%;
     padding: ${GLOBALS.DIMENSIONS.MARGIN / 2}px;
-    margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 5}px;
+    margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 2}px;
 `
 
 export const SItem = styled(SText)`

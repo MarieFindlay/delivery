@@ -109,7 +109,7 @@ export const SInput = styled.input`
     font-family: 'Actor';
     border:none;
     padding: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 2}px 0;
-    box-shadow: ${GLOBALS.EFFECTS.SHADOW};
+    box-shadow: ${GLOBALS.EFFECTS.INSET_SHADOW};
     color: ${GLOBALS.COLORS.CRIMSON};
     &:focus{
         outline: none;

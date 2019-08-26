@@ -13,10 +13,11 @@ export const SSelect = styled.select`
     font-family: 'Actor';
     padding: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 2}px ${GLOBALS.DIMENSIONS.MARGIN / 5}px;
     border-radius: ${GLOBALS.DIMENSIONS.BORDER_RADIUS};
-    box-shadow: ${GLOBALS.EFFECTS.SHADOW};
+    box-shadow: ${GLOBALS.EFFECTS.INSET_SHADOW};
     &:focus{
         outline: none;
     }
+    color: ${GLOBALS.COLORS.CRIMSON};
 `
 
 export const SForm = styled.form`

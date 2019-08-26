@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import GLOBALS from './../../../../globals';
+import { SText } from '../../../commons/StyledComponents';
+
+export const cardElementClass = 'card-element-class';
 
 export const SPayButton = styled.button`
     width: 49%;  
@@ -10,7 +13,11 @@ export const SPayButton = styled.button`
     cursor: pointer;
     font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_MEDIUM};
     font-family: 'Actor', sans-serif;
-    padding: ${GLOBALS.DIMENSIONS.MARGIN / 5}px;
+    padding: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 2}px;
+    color: ${GLOBALS.COLORS.CRIMSON};
+    :disabled: {
+        color: gray;
+    }
 `
 
 export const SButtonContainer = styled.div`
@@ -18,7 +25,7 @@ export const SButtonContainer = styled.div`
     justify-self: center;
     align-self: center;
     justify-content: space-between;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
 `;
 
@@ -30,4 +37,19 @@ export const pageContentStyles = {
     display: 'flex', 
     flex: 1, flexDirection: 'column',
     justifyContent: 'space-between',
+    color: GLOBALS.COLORS.CRIMSON,
 }
+
+export const SForm = styled.form`
+    width: 100%;
+    .${cardElementClass} {
+        background: white;
+        padding: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 2}px ${GLOBALS.DIMENSIONS.MARGIN / 5}px
+        border-radius: ${GLOBALS.DIMENSIONS.BORDER_RADIUS};
+        box-shadow: ${GLOBALS.EFFECTS.INSET_SHADOW};
+    }
+`
+
+export const SErrorText = styled(SText)`
+    margin-top: ${GLOBALS.DIMENSIONS.MARGIN / 5}px;
+`

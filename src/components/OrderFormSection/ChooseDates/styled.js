@@ -40,6 +40,6 @@ export const dayPickerInputStyles = {
     color: GLOBALS.COLORS.CRIMSON,
     padding: `${GLOBALS.DIMENSIONS.MARGIN / 5 * 2}px`,
     border: 'none',
-    boxShadow: `${GLOBALS.EFFECTS.SHADOW}`,
+    boxShadow: `${GLOBALS.EFFECTS.INSET_SHADOW}`,
     outline: 'none'
 }
