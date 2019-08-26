@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { deviceWidth } from './../commons/devices';
 
 // div components
-
 export const SContainer = styled.div`
     box-sizing: border-box;
     width: 100%;
@@ -20,8 +19,10 @@ export const SPageContainer = styled(SContainer)`
 `
 
 export const SPageContents = styled.div`
+    width: 100%;
     @media ${deviceWidth.tablet} {
         max-width: 500px;
+        width: 500px;
     }
     flex: 1;
     display: flex;
@@ -36,11 +37,11 @@ export const SInnerContents = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: ${GLOBALS.DIMENSIONS.MARGIN}px 0;
 
 `
 
 // text components
-
 export const SText = styled.p`
     font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_SMALL}
     color: ${GLOBALS.COLORS.CRIMSON}
@@ -91,7 +92,6 @@ export const SSubTitle = styled(SText)`
 export const SPageTitle = styled(SText)`
     font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_BIG};
     text-align: center;
-    line-height: 0;
 `
 
 export const SClickableText = styled.button`

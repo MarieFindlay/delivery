@@ -20,7 +20,6 @@ const SBackNextButton = styled.div`
     justify-self: center;
     align-self: center;
     justify-content: space-between;
-    margin-top: ${GLOBALS.DIMENSIONS.RESP_MARGIN};
 `
 
 const SNextButton = styled(SButton)`

@@ -25,11 +25,16 @@ const SCardButton = styled(SButton)`
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    padding: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 4}px 0;
+    &:not(:last-child){
+        margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 2}px;
+    }
 `
 
 const SCardTitle = styled(SText)`
     line-height: 1;
     font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_BIG};
+    margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 5}px;
 
 `
 

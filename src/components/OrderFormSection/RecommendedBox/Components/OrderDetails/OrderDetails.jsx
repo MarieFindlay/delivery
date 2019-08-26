@@ -1,12 +1,11 @@
 import React from "react";
-import { SText } from './../../../../commons/StyledComponents';
-import { SOrderDetails } from './styled';
+import { SOrderDetails, SItem } from './styled';
 
 export const OrderDetails = ({ items }) => {
     return (
         <SOrderDetails>
             {items.map(item => {
-                return <SText>{item}</SText>
+                return <SItem>{item}</SItem>
             })}
         </SOrderDetails>
     )
