@@ -32,6 +32,7 @@ export const SHowItWorksStepsContainer = styled.div`
     @media ${deviceWidth.tablet}{
         display: flex;
         justify-content: space-between;
+        margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN}px;
     }
 `
 
