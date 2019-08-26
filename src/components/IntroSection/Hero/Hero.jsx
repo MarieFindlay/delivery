@@ -16,7 +16,7 @@ const Hero = () => {
                 <SHeroImage src={GLOBALS.IMAGES.WOMAN_HERO}/>
             </SHeroImageContainer>
             <SButtonContainer>
-                <SHeroButton href={'#' + callToActionDestination} onClick={() => console.log('click')}>Build my box</SHeroButton>
+                <SHeroButton href={'#' + callToActionDestination}>Build my box</SHeroButton>
             </SButtonContainer>
         </SHeroContainer>
     )
