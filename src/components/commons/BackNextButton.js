@@ -27,6 +27,4 @@ const SNextButton = styled(SButton)`
     width: 49%;  
     background-color: ${GLOBALS.COLORS.MUTED_BEIGE};
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-    padding-top: 2vh;
-    padding-bottom: 2vh;
 `

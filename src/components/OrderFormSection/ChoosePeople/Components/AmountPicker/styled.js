@@ -8,7 +8,8 @@ export const SAmountPickerContainer = styled.div`
     box-shadow: ${GLOBALS.EFFECTS.SHADOW};
     display: flex;
     justify-content: space-between;
-    width: 100%;   
+    width: 100%;  
+    margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 2}px; 
 `
 
 export const SPlusMinusButton = styled(SButton)`
@@ -22,7 +23,6 @@ export const SPlusMinusButton = styled(SButton)`
 
 export const SLabel = styled(SText)`
     font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_BIG};
-    line-height: 0;
     text-align: center;
 
 `
@@ -38,6 +38,5 @@ export const SMiddlePanel = styled.div`
 
 export const SAmount = styled(SText)`
     font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_BIG};
-    line-height: 0;
     text-align: center;
 `

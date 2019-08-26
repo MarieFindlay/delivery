@@ -5,8 +5,6 @@ export const SPayButton = styled.button`
     width: 49%;  
     background-color: ${GLOBALS.COLORS.MUTED_BEIGE};
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-    padding-top: 2vh;
-    padding-bottom: 2vh;
     border: none;
     font-weight: 300;
     cursor: pointer;
@@ -21,5 +19,4 @@ export const SButtonContainer = styled.div`
     justify-content: space-between;
     width: 90%;
     margin: auto;
-    margin-top: ${GLOBALS.DIMENSIONS.RESP_MARGIN};
 `;
