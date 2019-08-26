@@ -2,7 +2,7 @@ import GLOBALS from './../../globals';
 import styled from 'styled-components'
 import { deviceWidth } from './../commons/devices';
 
-export const callToActionDestination = 'call-to-action-destination';
+export const callToActionDestination = 'build-my-box';
 
 // div components
 export const SContainer = styled.div`
