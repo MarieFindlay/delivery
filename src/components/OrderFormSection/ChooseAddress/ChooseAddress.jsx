@@ -25,22 +25,22 @@ export default class extends React.Component {
     handleFindMyAddress = async (event) => {
         event.preventDefault();
         //TO DO: fix error handling
-        // try {
-        //     const addresses = await getAddressesByPostcode(this.state.postcode);
-        //     this.setState({
-        //         addresses
-        //     })
-        // } catch (error) {
-        //     this.setState({
-        //         errorMessage: error.message
-        //     })
-        // }
+        try {
+            const addresses = await getAddressesByPostcode(this.state.postcode);
+            this.setState({
+                addresses
+            })
+        } catch (error) {
+            this.setState({
+                errorMessage: error.message
+            })
+        }
         
         // use dummy addresses below when not directly testing API
-        const addresses = ['address 1', 'address 2', 'address 3'];
-        this.setState({
-            addresses
-        })
+        // const addresses = ['address 1', 'address 2', 'address 3'];
+        // this.setState({
+        //     addresses
+        // })
     }
 
     handleSelectAddress = (event) => {
