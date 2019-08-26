@@ -4,6 +4,7 @@ import { deviceWidth } from './../../commons/devices';
 import GLOBALS from './../../../globals';
 
 export const SHowItWorksContainer = styled(SContainer)`
+    background-color: ${GLOBALS.COLORS.CREAM};
 `
 
 export const SParagraph = styled(SText)`
