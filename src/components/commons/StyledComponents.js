@@ -105,6 +105,8 @@ export const SInput = styled.input`
     width: 100%;
     font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_SMALL};
     text-align: center;
+    font-family: 'Actor';
+    padding: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 2}px 0;
     &:focus{
         border: none;
     }

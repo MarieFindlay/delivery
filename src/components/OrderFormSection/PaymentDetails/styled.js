@@ -10,6 +10,5 @@ export const SExtraCardDetails = styled.div`
 `
 
 export const SSmallInput = styled(SInput)`
-    &:not(:last-child){
-    }
+
 `

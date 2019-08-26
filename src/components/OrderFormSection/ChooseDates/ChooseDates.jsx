@@ -4,9 +4,9 @@ import 'react-day-picker/lib/style.css';
 import GLOBALS from './../../../globals';
 import { getNthDayFromDate } from './../../../utils/deliveryDetailsUtils';
 import { REPEAT_SCHEDULES } from '../../../consts/scheduleConsts';
-import { SPageTitle, SText, SInput } from './../../../components/commons/StyledComponents';
+import { SPageContainer, SPageContents, SInnerContents, SPageTitle, SText, SInput } from './../../../components/commons/StyledComponents';
 import BackNextButton from './../../commons/BackNextButton';
-import { SDatesPageContainer, SDayPickerContainer, SRepeatScheduleContainer, SFollowUpQuestion, SDateButton, dayPickerInputStyles } from './styled';
+import { SDayPickerContainer, SRepeatScheduleContainer, SFollowUpQuestion, SDateButton, dayPickerInputStyles, SCustomScheduleInput } from './styled';
 
 export default class extends React.Component {
     constructor(props) {
@@ -57,41 +57,45 @@ export default class extends React.Component {
         const { selectedDay, selectedRepeatSchedule } = this.state;
         const showCustomInputField = selectedRepeatSchedule === REPEAT_SCHEDULES.CUSTOM;
         return (
-            <SDatesPageContainer color={GLOBALS.COLORS.BEIGE}>
-                <SPageTitle>When shall we deliver your first box?</SPageTitle>
-                <SDayPickerContainer>
-                    <DayPickerInput
-                        selectedDays={this.state.selectedDay}
-                        onDayChange={this.handleDayChange}
-                        inputProps={{ style: dayPickerInputStyles }}
-                    />
-                </SDayPickerContainer>
-                {selectedDay && 
-                    <SRepeatScheduleContainer>
-                        <SFollowUpQuestion>And after that?</SFollowUpQuestion>
-                        {this.getRepeatDeliveryOptions().map(option => {
-                            return (
-                            <SDateButton
-                                key={option.style}
-                                selected={option.style === selectedRepeatSchedule}
-                                onClick={() => this.handleChooseRepeatStyle(option.style)}
-                            >
-                                {option.label}
-                            </SDateButton>
-                            )
-                        })}
-                        {showCustomInputField &&
-                            <SInput 
-                                type="text"
-                                placeholder={`Tell us what schedule suits you!`}
-                                value={this.state.customScheduleDetails}
-                                onChange={this.handleCustomInputChange}
-                        />}
-                        <SText>You can change your delivery dates at any time.</SText>
-                    </SRepeatScheduleContainer>
-                }
-                <BackNextButton nextButtonDisabled={!this.state.selectedDay} onClickNext={this.handleClickNext} onClickBack={this.props.goToPrevPage}/>
-            </SDatesPageContainer>
+            <SPageContainer color={GLOBALS.COLORS.BEIGE}>
+                <SPageContents>
+                    <SPageTitle>When shall we deliver your first box?</SPageTitle>
+                    <SInnerContents>
+                        <SDayPickerContainer>
+                            <DayPickerInput
+                                selectedDays={this.state.selectedDay}
+                                onDayChange={this.handleDayChange}
+                                inputProps={{ style: dayPickerInputStyles }}
+                            />
+                        </SDayPickerContainer>
+                        {selectedDay && 
+                            <SRepeatScheduleContainer>
+                                <SFollowUpQuestion>And after that?</SFollowUpQuestion>
+                                {this.getRepeatDeliveryOptions().map(option => {
+                                    return (
+                                    <SDateButton
+                                        key={option.style}
+                                        selected={option.style === selectedRepeatSchedule}
+                                        onClick={() => this.handleChooseRepeatStyle(option.style)}
+                                    >
+                                        {option.label}
+                                    </SDateButton>
+                                    )
+                                })}
+                                {showCustomInputField &&
+                                    <SCustomScheduleInput 
+                                        type="text"
+                                        placeholder={`Tell us what schedule suits you!`}
+                                        value={this.state.customScheduleDetails}
+                                        onChange={this.handleCustomInputChange}
+                                />}
+                                <SText>You can change your delivery dates at any time.</SText>
+                            </SRepeatScheduleContainer>
+                        }
+                    </SInnerContents>
+                    <BackNextButton nextButtonDisabled={!this.state.selectedDay} onClickNext={this.handleClickNext} onClickBack={this.props.goToPrevPage}/>
+                </SPageContents>
+            </SPageContainer>
         )
     }
 }

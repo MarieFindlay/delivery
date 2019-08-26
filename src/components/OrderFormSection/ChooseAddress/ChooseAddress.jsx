@@ -1,6 +1,6 @@
 import React from "react";
 import GLOBALS from './../../../globals';
-import { SPageTitle, SPageContainer, SInput, SText } from './../../commons/StyledComponents';
+import { SPageTitle, SPageContainer, SPageContents, SInnerContents, SInput, SText } from './../../commons/StyledComponents';
 import BackNextButton from './../../commons/BackNextButton';
 import { getAddressesByPostcode } from './../../../utils/deliveryDetailsUtils';
 import { SForm, SSelect } from './styled';
@@ -58,20 +58,24 @@ export default class extends React.Component {
     render(){
         return (
             <SPageContainer color={GLOBALS.COLORS.BEIGE}>
-                <SPageTitle>Where shall we deliver?</SPageTitle>
-                <SForm onSubmit={this.handleFindMyAddress}>
-                    <SInput type="text" placeholder={`Type your postcode`} value={this.state.postcode} onChange={this.handleInputChange}/>
-                </SForm>
-                {this.state.errorMessage && <SText>Sorry, we couldn't find that postcode, or you've lost network connection. Try again or get in touch if we've made a mistake!</SText>}
-                {this.state.addresses && (
-                    <SSelect onChange={this.handleSelectAddress} name="addresses">
-                        <option value="" default>Choose your address...</option>
-                        {this.state.addresses.map(address =>
-                            <option value={address}>{address}</option>
+                <SPageContents>
+                    <SPageTitle>Where shall we deliver?</SPageTitle>
+                    <SInnerContents>
+                        <SForm onSubmit={this.handleFindMyAddress}>
+                            <SInput type="text" placeholder={`Type your postcode`} value={this.state.postcode} onChange={this.handleInputChange}/>
+                        </SForm>
+                        {this.state.errorMessage && <SText>Sorry, we couldn't find that postcode, or you've lost network connection. Try again or get in touch if we've made a mistake!</SText>}
+                        {this.state.addresses && (
+                            <SSelect onChange={this.handleSelectAddress} name="addresses">
+                                <option value="" default>Choose your address...</option>
+                                {this.state.addresses.map(address =>
+                                    <option value={address}>{address}</option>
+                                )}
+                            </SSelect>
                         )}
-                    </SSelect>
-                )}
-                <BackNextButton onClickNext={this.handleClickNext} onClickBack={this.props.goToPrevPage}/>
+                    </SInnerContents>
+                    <BackNextButton onClickNext={this.handleClickNext} onClickBack={this.props.goToPrevPage}/>
+                </SPageContents>
             </SPageContainer>
         )
     }
