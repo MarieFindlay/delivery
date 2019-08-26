@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
 import { STATUS_TYPES, ERROR_TYPES, ERROR_MESSAGES } from '../../../../consts/checkoutConsts';
 import GLOBALS from '../../../../globals';
-import { SPayButton, SButtonContainer } from './styled';
+import { SPayButton, SButtonContainer, pageContentStyles } from './styled';
+import { SPageTitle } from './../../../commons/StyledComponents';
 
 const CheckoutForm = ({ stripe, handlePaymentComplete, goToPrevPage, subscriptionData, subscriptionMetaData }) => {
   const [status, setStatus] = useState(STATUS_TYPES.INCOMPLETE);
@@ -39,8 +40,9 @@ const CheckoutForm = ({ stripe, handlePaymentComplete, goToPrevPage, subscriptio
   };
 
   return (
-    <form onSubmit={submit}>
-      <CardElement />
+    <form style={pageContentStyles} onSubmit={submit}>
+      <SPageTitle>Last thing! How would you like to pay?</SPageTitle>
+      <CardElement/>
       <SButtonContainer>
         <SPayButton onClick={goToPrevPage}>back</SPayButton>
         <SPayButton

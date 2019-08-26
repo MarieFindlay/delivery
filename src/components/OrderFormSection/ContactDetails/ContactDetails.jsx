@@ -1,8 +1,8 @@
 import React from "react";
 import GLOBALS from './../../../globals';
 import BackNextButton from './../../commons/BackNextButton';
-import { SPageContainer, SPageTitle, SInput } from './../../commons/StyledComponents';
-import { SPhoneNumber } from './styled';
+import { SPageContainer, SPageTitle, SInput, SPageContents, SInnerContents } from './../../commons/StyledComponents';
+import { SEmailInput } from './styled';
 
 export default class extends React.Component {
     constructor(props) {
@@ -35,10 +35,27 @@ export default class extends React.Component {
     render(){
         return (
             <SPageContainer color={GLOBALS.COLORS.BEIGE}>
-                <SPageTitle>How can we contact you?</SPageTitle>
-                <SInput type="text" placeholder="Type your email address" value={this.state.emailAddress} onChange={this.handleEmailInputChange}/>
-                <SPhoneNumber type="text" placeholder="And your phone number" value={this.state.phoneNumber} onChange={this.handlePhoneNumberInputChange}/>
-                <BackNextButton onClickBack={this.props.goToPrevPage} onClickNext={this.handleClickNext}/>
+                <SPageContents>
+                    <SPageTitle>How can we contact you?</SPageTitle>
+                    <SInnerContents>
+                        <SEmailInput 
+                            type="text"
+                            placeholder="Type your email address"
+                            value={this.state.emailAddress}
+                            onChange={this.handleEmailInputChange}
+                        />
+                        <SInput
+                            type="text"
+                            placeholder="And your phone number"
+                            value={this.state.phoneNumber} 
+                            onChange={this.handlePhoneNumberInputChange}
+                        />
+                    </SInnerContents>
+                    <BackNextButton
+                        onClickBack={this.props.goToPrevPage}
+                        onClickNext={this.handleClickNext}
+                    />
+                </SPageContents>
             </SPageContainer>
         )
     }

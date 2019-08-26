@@ -106,7 +106,9 @@ export const SInput = styled.input`
     font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_SMALL};
     text-align: center;
     font-family: 'Actor';
+    border:none;
     padding: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 2}px 0;
+    box-shadow: ${GLOBALS.EFFECTS.SHADOW};
     &:focus{
         border: none;
     }

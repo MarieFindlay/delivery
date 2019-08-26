@@ -10,6 +10,7 @@ export const SPayButton = styled.button`
     cursor: pointer;
     font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_MEDIUM};
     font-family: 'Actor', sans-serif;
+    padding: ${GLOBALS.DIMENSIONS.MARGIN / 5}px;
 `
 
 export const SButtonContainer = styled.div`
@@ -18,5 +19,15 @@ export const SButtonContainer = styled.div`
     align-self: center;
     justify-content: space-between;
     width: 90%;
-    margin: auto;
+    margin: 0 auto;
 `;
+
+export const SInvisibleButtonDiv = styled.div`
+    height: 0px;
+`
+
+export const pageContentStyles = {
+    display: 'flex', 
+    flex: 1, flexDirection: 'column',
+    justifyContent: 'space-between',
+}
