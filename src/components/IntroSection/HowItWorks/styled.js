@@ -4,7 +4,7 @@ import { deviceWidth } from './../../commons/devices';
 import GLOBALS from './../../../globals';
 
 export const SHowItWorksContainer = styled(SContainer)`
-    background-color: ${GLOBALS.COLORS.CREAM};
+    background-color: ${GLOBALS.COLORS.MUTED_BEIGE};
 `
 
 export const SParagraph = styled(SText)`
@@ -15,6 +15,8 @@ export const SParagraph = styled(SText)`
         font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_MEDIUM};
         text-align: center;
         margin-bottom: 0;
+        border-top: 8px solid ${GLOBALS.COLORS.BEIGE};
+        padding-top: 5px;
     }
 `
 

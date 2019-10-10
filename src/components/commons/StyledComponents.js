@@ -87,7 +87,7 @@ export const SSubTitle = styled(SText)`
     letter-spacing: 0.02em;
     text-align: left;
     @media ${deviceWidth.tablet} {
-        max-width: calc(35% - ${GLOBALS.DIMENSIONS.MARGIN}px);
+        max-width: 700px;
     }
     @media ${deviceWidth.mobileS} {
         font-size: 17px;

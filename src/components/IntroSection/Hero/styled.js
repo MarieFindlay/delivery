@@ -31,19 +31,16 @@ export const SHeroImageContainer = styled.div`
 
 export const SHeroImage = styled.img`
     object-fit: cover;
-    border-radius: 50%;
-    height: 200px;
-    width: 200px;
-    margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 3}px;
+    width: 300px;
+    margin-bottom: -50px;
+    margin-right: -45px;
     @media ${deviceWidth.tablet} {
         position: absolute;
         object-fit: cover;
-        min-width: 65%;
-        width: 65%;
         border-radius: 0;
-        height: 100%;
-        top: 0;
-        right: 0;
+        bottom: 50px;
+        height: 90%;
+        width: auto;
     }
 `
 export const SButtonContainer = styled.div`
