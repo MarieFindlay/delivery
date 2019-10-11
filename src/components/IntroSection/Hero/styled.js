@@ -11,14 +11,25 @@ export const SHeroContainer = styled(SContainer)`
         padding: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 3}px;
     }
     @media ${deviceWidth.tablet} {
-        height: 70vh;
+        padding: ${GLOBALS.DIMENSIONS.MARGIN * 3 / 2}px;
+        height: 550px;
     }
+    @media ${deviceWidth.laptop} {
+        padding: ${GLOBALS.DIMENSIONS.MARGIN * 2}px;
+    }
+`
+
+export const SHeroTextContainer = styled.div`
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
 `
 
 export const SSubTitleContainer = styled.div`
     @media ${deviceWidth.tablet} {
         box-sizing: border-box;
-        margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN}px;
+        margin-bottom: 0;
     }
 `
 

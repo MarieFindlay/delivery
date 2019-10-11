@@ -67,7 +67,7 @@ export const SMainTitle = styled(SText)`
         font-size: 40px;
     }
     @media ${deviceWidth.tablet} {
-        margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN * 3 / 2}px;
+        margin-bottom: 0;
     }
 `
 
@@ -82,16 +82,16 @@ export const SSubTitle = styled(SText)`
     text-align: left;
     @media ${deviceWidth.tablet} {
         max-width: 300px;
-        font-size: 18px;
+        font-size: 20px;
     }
     @media (min-width: 850px) {
         max-width: 450px;
     }
-    @media ${deviceWidth.laptop} {
+    @media (min-width: 1110px) {
         font-size: 22px;
         max-width: 600px;
     }
-    @media (min-width: 1150px) {
+    @media (min-width: 1300px) {
         max-width: initial;
     }
     @media ${deviceWidth.mobileS} {
