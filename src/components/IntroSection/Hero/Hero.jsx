@@ -12,7 +12,7 @@ const Hero = () => {
                 <SSubTitle>We’ll take care of the boring stuff, so you can dream of bigger things.</SSubTitle>
             </SSubTitleContainer>
             <SButtonContainer>
-                <SHeroButton href={'#' + callToActionDestination}>Build my box</SHeroButton>
+                <SHeroButton href={'#' + callToActionDestination}>Get started</SHeroButton>
             </SButtonContainer>
             <SHeroImageContainer>
                 <SHeroImage src={GLOBALS.IMAGES.WOMAN_HERO}/>

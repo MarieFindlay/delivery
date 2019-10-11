@@ -8,7 +8,7 @@ const HowItWorks = () => {
             <SHowItWorksTitle>How it works.</SHowItWorksTitle>
             <SHowItWorksStepsContainer>
                 <SStepContainer>
-                    <SStepIcon src={GLOBALS.IMAGES.LIST_HANDS}/>
+                    <SStepIcon src={GLOBALS.IMAGES.PHONE}/>
                     <SParagraph>1. Tell us what you need, how often you need it and when you want it delivered.</SParagraph>
                 </SStepContainer>
                 <SStepContainer>

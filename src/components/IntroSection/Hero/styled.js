@@ -18,7 +18,7 @@ export const SHeroContainer = styled(SContainer)`
 export const SSubTitleContainer = styled.div`
     @media ${deviceWidth.tablet} {
         box-sizing: border-box;
-        margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 2}px;
+        margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN}px;
     }
 `
 
@@ -34,13 +34,16 @@ export const SHeroImage = styled.img`
     width: 300px;
     margin-bottom: -50px;
     margin-right: -45px;
+    margin-top: 20px;
     @media ${deviceWidth.tablet} {
         position: absolute;
         object-fit: cover;
         border-radius: 0;
         bottom: 50px;
-        height: 90%;
-        width: auto;
+        width: 400px;
+    }
+    @media ${deviceWidth.laptop} {
+        width: 500px;
     }
 `
 export const SButtonContainer = styled.div`
@@ -52,9 +55,10 @@ export const SButtonContainer = styled.div`
     transform: translate3d(-50%, 50%, 0);
     min-width: 250px;
     @media ${deviceWidth.tablet} {
-        bottom: initial;
-        left: 35%;
-        top: 55%;
+       position: initial;
+       bottom: initial;
+       transform: initial;
+       justify-content: flex-start;
     }
 `
 export const SHeroButton = styled.a`

@@ -22,6 +22,7 @@ export default {
         LIST_HANDS: require('./assets/list-hands.png'),
         BOX_DOG: require('./assets/box-dog.png'),
         LAUGHING_WOMAN: require('./assets/laughing-woman.png'),
+        PHONE: require('./assets/iphone.png'),
 
     },
     DIMENSIONS: {

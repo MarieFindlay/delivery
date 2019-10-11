@@ -15,7 +15,7 @@ export const SParagraph = styled(SText)`
         font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_MEDIUM};
         text-align: center;
         margin-bottom: 0;
-        border-top: 8px solid ${GLOBALS.COLORS.BEIGE};
+        border-top: 18px solid ${GLOBALS.COLORS.BEIGE};
         padding-top: 5px;
     }
 `

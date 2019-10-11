@@ -67,7 +67,7 @@ export const SMainTitle = styled(SText)`
         font-size: 40px;
     }
     @media ${deviceWidth.tablet} {
-        margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 6}px;
+        margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN * 3 / 2}px;
     }
 `
 
@@ -77,17 +77,22 @@ export const SSubTitle = styled(SText)`
     line-height: 1.5em;
     margin-block-start:0em;
     margin-block-end: 0em;
-    margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 2}px;
-    &:last-child{
-        margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN}px;
-        @media ${deviceWidth.mobileS} {
-            margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 2}px;
-        }
-    }
+    margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 6}px;
     letter-spacing: 0.02em;
     text-align: left;
     @media ${deviceWidth.tablet} {
-        max-width: 700px;
+        max-width: 300px;
+        font-size: 18px;
+    }
+    @media (min-width: 850px) {
+        max-width: 450px;
+    }
+    @media ${deviceWidth.laptop} {
+        font-size: 22px;
+        max-width: 600px;
+    }
+    @media (min-width: 1150px) {
+        max-width: initial;
     }
     @media ${deviceWidth.mobileS} {
         font-size: 17px;
