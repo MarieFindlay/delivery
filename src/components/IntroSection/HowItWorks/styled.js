@@ -4,7 +4,7 @@ import { deviceWidth } from './../../commons/devices';
 import GLOBALS from './../../../globals';
 
 export const SHowItWorksContainer = styled(SContainer)`
-    background-color: ${GLOBALS.COLORS.MUTED_BEIGE};
+    background-color: ${GLOBALS.COLORS.SNOW};
 `
 
 export const SParagraph = styled(SText)`
@@ -15,7 +15,6 @@ export const SParagraph = styled(SText)`
         font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_MEDIUM};
         text-align: center;
         margin-bottom: 0;
-        border-top: 18px solid ${GLOBALS.COLORS.BEIGE};
         padding-top: 5px;
     }
 `
@@ -41,16 +40,38 @@ export const SHowItWorksStepsContainer = styled.div`
 export const SStepContainer = styled.div`
     @media ${deviceWidth.tablet}{
         width: 25%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 `
 
 export const SStepIcon = styled.img`
     @media ${deviceWidth.tablet}{
-        height: 150px;
+        height: 200px;
+        width: 200px;
         justify-self: center;
-        width: 100%;
-        object-fit: contain;
+        object-fit: cover;
+        display: flex;   
+    }
+    @media ${deviceWidth.laptop}{
+       height: 250px;
+       width: 250px;
+    }
+    display: none;
+`
+
+export const SStepImageContainer = styled.div`
+    @media ${deviceWidth.tablet}{
         display: flex;
+        padding-top: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: ${GLOBALS.COLORS.BEIGE};
+        box-shadow: ${GLOBALS.EFFECTS.SHADOW};
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: ${props => props.color ? props.color : GLOBALS.COLORS.BEIGE}
     }
     display: none;
 `

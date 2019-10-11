@@ -45,7 +45,11 @@ export default {
         MUTED_CRIMSON: '#674343',
         CREAM: 'white',
         BEIGE: '#F9D194',
-        MUTED_BEIGE: '#F9EDEB'
+        MUTED_BEIGE: '#F9EDEB',
+        PINK: '#F84676',
+        ORANGE: '#FD4C02',
+        GREEN: '#B8C24A',
+        SNOW: 'snow',
     },
     EFFECTS: {
         SHADOW: '2px 2px 4px rgba(0, 0, 0, 0.25)',
