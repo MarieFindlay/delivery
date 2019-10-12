@@ -6,6 +6,8 @@ import GLOBALS from './../../../globals';
 export const SHeroContainer = styled(SContainer)`
     position: relative;
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
     padding: ${GLOBALS.DIMENSIONS.MARGIN}px;
     @media ${deviceWidth.mobileS} {
         padding: ${GLOBALS.DIMENSIONS.MARGIN / 5 * 3}px;
@@ -13,6 +15,7 @@ export const SHeroContainer = styled(SContainer)`
     @media ${deviceWidth.tablet} {
         padding: ${GLOBALS.DIMENSIONS.MARGIN * 3 / 2}px;
         height: 550px;
+        flex-direction: row;
     }
     @media ${deviceWidth.laptop} {
         padding: ${GLOBALS.DIMENSIONS.MARGIN * 2}px;
@@ -23,7 +26,11 @@ export const SHeroTextContainer = styled.div`
     height: 100%;
     display:flex;
     flex-direction: column;
-    justify-content: space-between;
+    @media ${deviceWidth.tablet} {
+        justify-content: space-between;
+    }
+   
+    
 `
 
 export const SSubTitleContainer = styled.div`
@@ -34,27 +41,36 @@ export const SSubTitleContainer = styled.div`
 `
 
 export const SHeroImageContainer = styled.div`
+    @media ${deviceWidth.mobileS} {
+        transform: translateY(30px); 
+        margin-right: 0;
+    }
     flex: 1;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    transform: translateY(50px);
+    z-index: 0;
+    margin-right: -50px;
+    @media ${deviceWidth.tablet} {
+       position: absolute;
+       right: 50px
+       bottom:50px;
+    }
 `
 
 export const SHeroImage = styled.img`
     object-fit: cover;
     width: 300px;
-    margin-bottom: -50px;
-    margin-right: -45px;
-    margin-top: 20px;
-    @media ${deviceWidth.tablet} {
-        position: absolute;
+    @media ${deviceWidth.tablet} {      
         object-fit: cover;
-        border-radius: 0;
-        bottom: 50px;
-        width: 400px;
+        width: 350px;
     }
     @media ${deviceWidth.laptop} {
-        width: 500px;
+        width: 450px;
+    }
+    @media ${deviceWidth.mobileM} {
+        width: 250px;
     }
 `
 export const SButtonContainer = styled.div`
@@ -65,6 +81,7 @@ export const SButtonContainer = styled.div`
     left: 50%;
     transform: translate3d(-50%, 50%, 0);
     min-width: 250px;
+    z-index: 1;
     @media ${deviceWidth.tablet} {
        position: initial;
        bottom: initial;
