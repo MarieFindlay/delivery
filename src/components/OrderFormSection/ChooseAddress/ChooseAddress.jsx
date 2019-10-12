@@ -64,7 +64,7 @@ export default class extends React.Component {
                         <SForm onSubmit={this.handleFindMyAddress}>
                             <SInput type="text" placeholder={`Type your postcode`} value={this.state.postcode} onChange={this.handleInputChange}/>
                         </SForm>
-                        {this.state.errorMessage && <SText>Sorry, we couldn't find that postcode, or you've lost network connection. Try again or get in touch if we've made a mistake!</SText>}
+                        {this.state.errorMessage && <SText>Sorry, we couldn't find that postcode. Try again or get in touch if we've made a mistake!</SText>}
                         {this.state.addresses && (
                             <SSelect onChange={this.handleSelectAddress} name="addresses">
                                 <option value="" default>Choose your address...</option>
