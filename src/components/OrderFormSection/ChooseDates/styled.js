@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { SPageContainer, SText, SInput } from './../../commons/StyledComponents';
+import { SText, SInput } from './../../commons/StyledComponents';
 import { SButton } from './../../commons/Button';
 import GLOBALS from './../../../globals';
 

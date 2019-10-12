@@ -3,8 +3,7 @@ import { CardElement, injectStripe } from 'react-stripe-elements';
 import { STATUS_TYPES, ERROR_TYPES, ERROR_MESSAGES } from '../../../../consts/checkoutConsts';
 import GLOBALS from '../../../../globals';
 import { SPayButton, SButtonContainer, pageContentStyles, SForm, cardElementClass, SErrorText } from './styled';
-import { SPageTitle, SText } from './../../../commons/StyledComponents';
-import styled from 'styled-components'
+import { SPageTitle } from './../../../commons/StyledComponents';
 
 const CheckoutForm = ({ stripe, handlePaymentComplete, goToPrevPage, subscriptionData, subscriptionMetaData }) => {
   const [status, setStatus] = useState(STATUS_TYPES.INCOMPLETE);

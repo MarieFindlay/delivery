@@ -4,7 +4,7 @@ import 'react-day-picker/lib/style.css';
 import GLOBALS from './../../../globals';
 import { getNthDayFromDate } from './../../../utils/deliveryDetailsUtils';
 import { REPEAT_SCHEDULES } from '../../../consts/scheduleConsts';
-import { SPageContainer, SPageContents, SInnerContents, SPageTitle, SText, SInput } from './../../../components/commons/StyledComponents';
+import { SPageContainer, SPageContents, SInnerContents, SPageTitle, SText } from './../../../components/commons/StyledComponents';
 import BackNextButton from './../../commons/BackNextButton';
 import { SDayPickerContainer, SRepeatScheduleContainer, SFollowUpQuestion, SDateButton, dayPickerInputStyles, SCustomScheduleInput } from './styled';
 

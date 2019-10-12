@@ -2,7 +2,7 @@ import React from "react";
 import { Elements, StripeProvider } from 'react-stripe-elements';
 import CheckoutForm from './Components/CheckoutForm';
 import GLOBALS from './../../../globals';
-import { SPageContainer, SPageContents, SPageTitle } from './../../commons/StyledComponents';
+import { SPageContainer, SPageContents } from './../../commons/StyledComponents';
 
 export default class extends React.Component {
     constructor(props) {
