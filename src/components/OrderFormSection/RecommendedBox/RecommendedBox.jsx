@@ -11,6 +11,7 @@ export default class extends React.Component {
         super(props);
         this.state = {
             boxLoading: true,
+            errorMessage: null,
             recommendedBox: {
                 items: [],
                 price: 0
@@ -20,11 +21,19 @@ export default class extends React.Component {
 
     componentDidMount = async() => {
         const { hasDishwasher, includeToiletries, numberOfPeople } = this.props;
-        const recommendedBox = await getRecommendedBox(includeToiletries, hasDishwasher, numberOfPeople);
-        this.setState({
-            recommendedBox,
-            boxLoading: false,
-        })
+        try {
+            const result = await getRecommendedBox(includeToiletries, hasDishwasher, numberOfPeople);
+            this.setState({
+                recommendedBox: result,
+                boxLoading: false,
+            })
+        } catch (error) {
+            this.setState({
+                errorMessage: error.message,
+                boxLoading: false,
+            })
+        }
+
     }
 
     handleClickOrder = () => {
@@ -39,6 +48,13 @@ export default class extends React.Component {
                     <SPageContents>
                     {this.state.boxLoading &&
                         <SPageTitle>Box loading...</SPageTitle>
+                    }
+                    {!this.state.boxLoading && this.state.errorMessage &&
+                        <>
+                            <SInnerContents>
+                                <SSubText>{`Sorry, there was a problem calculating your box: ${this.state.errorMessage}`}</SSubText>
+                            </SInnerContents>
+                        </>
                     }
                     {!this.state.boxLoading &&
                         <> 

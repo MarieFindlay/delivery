@@ -10,8 +10,12 @@ const { HOUSEHOLD_TOILETRIES_DISHWASHER, HOUSEHOLD_TOILETRIES, HOUSEHOLD_DISHWAS
 export const getRecommendedBox = async (includeToiletries, hasDishwasher, numberOfPeople) => {
     const plan = getSelectedPlan(includeToiletries, hasDishwasher);
     const items = getItemsWithQuantities(plan, numberOfPeople);
-    const price = await getPriceFromStripePlan(plan, numberOfPeople);
-    return { plan, items, price };
+    try {
+        const price = await getPriceFromStripePlan(plan, numberOfPeople);
+        return { plan, items, price };
+    } catch(error) {
+        throw error;
+    }
 }
 
 
@@ -41,21 +45,25 @@ export const getItemWithQuantity = (item, numberOfPeople) => {
 
 
 export const getPriceFromStripePlan = async(plan, numberOfPeople) => {
-    
-    const stripePlan = await fetchStripePlan(plan);
-    if (!stripePlan || !stripePlan.tiers) return null;
-    const pricePlanTiers = addLimitsToPricePlanTiers(stripePlan.tiers);
-    
-    let price = 0;
-    for (let person = 0; person <= numberOfPeople; person++) {
-        for (const tier of pricePlanTiers) {
-            if (person >= tier.from && person <= tier.up_to) {
-                price = price + tier.unit_amount
+    try {
+        const result = await fetchStripePlan(plan);
+        if (!result.tiers) return result;
+        const pricePlanTiers = addLimitsToPricePlanTiers(result.tiers);
+        
+        let price = 0;
+        for (let person = 0; person <= numberOfPeople; person++) {
+            for (const tier of pricePlanTiers) {
+                if (person >= tier.from && person <= tier.up_to) {
+                    price = price + tier.unit_amount
+                }
+                continue;
             }
-            continue;
         }
+        return price;
+    } catch(error) {
+        throw error;
     }
-    return price;
+
 }
 
 

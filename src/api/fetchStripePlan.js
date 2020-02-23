@@ -13,6 +13,6 @@ export const fetchStripePlan = async (plan) => {
             throw new Error(response.error);
         }
     } catch (error) {
-        return null;
+      throw error;
     }
 };
