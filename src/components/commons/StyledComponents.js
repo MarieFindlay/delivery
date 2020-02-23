@@ -40,7 +40,6 @@ export const SInnerContents = styled.div`
     align-items: center;
     justify-content: center;
     padding: ${GLOBALS.DIMENSIONS.MARGIN}px 0;
-
 `
 
 // text components

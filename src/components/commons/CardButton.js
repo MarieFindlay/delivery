@@ -35,7 +35,6 @@ const SCardTitle = styled(SText)`
     line-height: 1;
     font-size: ${GLOBALS.DIMENSIONS.FONT_SIZE_BIG};
     margin-bottom: ${GLOBALS.DIMENSIONS.MARGIN / 5}px;
-
 `
 
 const SCardSubtitle = styled(SText)`

@@ -7,7 +7,6 @@ const mapDispatchToProps = dispatch => {
         goToNextPage: () => dispatch(nextPage()),
         goToPrevPage: () => dispatch(prevPage()),
     };
-    
 };
 
 export default connect(undefined, mapDispatchToProps)(OrderComplete);

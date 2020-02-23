@@ -8,7 +8,7 @@ OrderFormSection.propTypes = {
   
 const mapStateToProps = state => ({
     pageNumber: state.currentPage,
-  });
+});
 
 
 export default connect(mapStateToProps)(OrderFormSection);
